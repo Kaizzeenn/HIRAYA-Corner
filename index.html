@@ -640,17 +640,26 @@ body{overflow-x:hidden} button,input,textarea,select{font:inherit} button{cursor
 
 
 
-/* ===== Consistent team profile photos ===== */
+
+
+/* ===== Final consistent team profile photos ===== */
 .portrait{
+  position:relative;
+  width:100%;
+  height:auto;
+  aspect-ratio:1/1;
+  overflow:hidden;
   border:none !important;
   outline:none !important;
-  overflow:hidden;
+  box-shadow:none !important;
+  border-radius:18px;
   background:#fff;
 }
 
 .portrait img{
   width:100%;
   height:100%;
+  max-width:none !important;
   display:block;
   object-fit:cover;
   object-position:center;
@@ -659,19 +668,21 @@ body{overflow-x:hidden} button,input,textarea,select{font:inherit} button{cursor
   box-shadow:none !important;
 }
 
-/* Slightly crop photos that contain a border inside the image file */
-.member[data-name="Ethan Austin Manalili"] .portrait img{
-  transform:scale(1.15);
-  transform-origin:center;
-  object-position:center 46%;
+/* Crops out the black frame that is part of Ethan's source image */
+.portrait img.crop-embedded-border{
+  position:absolute;
+  top:-8%;
+  left:-8%;
+  width:116% !important;
+  height:116% !important;
+  max-width:none !important;
+  transform:none !important;
+  object-fit:cover;
+  object-position:center 48%;
 }
 
-.member[data-name="Aaron Matthew Natividad"] .portrait img{
-  transform:scale(1.02);
-  transform-origin:center;
-  object-position:center 44%;
-}
-
+/* Keep the three uploaded portraits framed consistently */
+.member[data-name="Aaron Matthew Natividad"] .portrait img,
 .member[data-name="Marjorie Ann Yulo"] .portrait img{
   transform:scale(1.02);
   transform-origin:center;
@@ -957,7 +968,7 @@ body{overflow-x:hidden} button,input,textarea,select{font:inherit} button{cursor
 
       <button class="member" type="button" style="--tone:var(--pink)" data-name="Ethan Austin Manalili" data-degree="Bachelor of Science in Information Systems">
         <div class="portrait">
-          <img src="manalili.png" alt="Ethan Austin Manalili" loading="lazy">
+          <img class="crop-embedded-border" src="manalili.png" alt="Ethan Austin Manalili" loading="lazy">
         </div>
         <h3>Ethan Austin Manalili</h3>
         <p>1st Year · BS Information Systems</p>
