@@ -638,7 +638,9 @@ body{overflow-x:hidden} button,input,textarea,select{font:inherit} button{cursor
 .filled-photo img{width:100%;height:100%;object-fit:cover;display:block;border-radius:14px}
 
 
-/* ===== Final profile photo fix ===== */
+
+
+/* ===== Consistent team profile photos ===== */
 .portrait{
   border:none !important;
   outline:none !important;
@@ -657,10 +659,23 @@ body{overflow-x:hidden} button,input,textarea,select{font:inherit} button{cursor
   box-shadow:none !important;
 }
 
-/* The black frame is embedded in Aaron's image, so slightly zoom it in */
-.member[data-name="Aaron Matthew Natividad"] .portrait img{
-  transform:scale(1.09);
+/* Slightly crop photos that contain a border inside the image file */
+.member[data-name="Ethan Austin Manalili"] .portrait img{
+  transform:scale(1.15);
   transform-origin:center;
+  object-position:center 46%;
+}
+
+.member[data-name="Aaron Matthew Natividad"] .portrait img{
+  transform:scale(1.02);
+  transform-origin:center;
+  object-position:center 44%;
+}
+
+.member[data-name="Marjorie Ann Yulo"] .portrait img{
+  transform:scale(1.02);
+  transform-origin:center;
+  object-position:center 44%;
 }
 
 </style>
