@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<base href="./">
 <meta name="theme-color" content="#fff7e9">
 <meta name="description" content="HIRAYA Corner NSTP002 Interactive Accomplishment Report">
 <title>HIRAYA Corner | NSTP002 Accomplishment Report</title>
@@ -670,7 +671,7 @@ body{overflow-x:hidden} button,input,textarea,select{font:inherit} button{cursor
         <article class="panel hero"><div class="pad hero-copy"><span class="eyebrow">BAGE5 · Team HIRAYA · NSTP002</span><h1 class="display">HIRAYA<span>Corner.</span></h1><p class="lead">A safe and student-friendly corner where Junior High School students can express themselves, reflect, receive encouragement, and feel that they belong.</p><div class="pills"><span class="pill">Freedom Box</span><span class="pill">Freedom Board</span><span class="pill">Mood Check-In</span><span class="pill">Reflection Corner</span></div><div class="actions"><button class="btn primary" data-go="story">Explore the project →</button><button class="btn light" data-go="deployment">Open the deployments</button></div></div></article>
         <div class="home-visual">
           <article class="panel board-stage">
-            <div class="board-frame"><div class="board-surface"><img src="assets/hiraya-corner.png" id="boardImage" alt="HIRAYA Board decorated with colorful stars, hearts, flowers, gratitude notes, and affirmations"></div></div>
+            <div class="board-frame"><div class="board-surface"><img src="./hiraya-corner.png" id="boardImage" alt="HIRAYA Board decorated with colorful stars, hearts, flowers, gratitude notes, and affirmations"></div></div>
             <div class="stick s1">Grateful</div><div class="stick s2">Happy</div><div class="stick s3">Kindness</div><div class="stick s4">Lovely</div>
             <div class="shape heart h1"></div><div class="shape heart h2"></div><div class="shape star st1">★</div><div class="shape star st2">★</div><div class="shape flower f1">✿</div><div class="shape flower f2">✿</div>
             <div class="board-caption"><strong>HIRAYA Board</strong><span>The actual HIRAYA Board designed with the participants — colorful, welcoming, and filled with affirmations and gratitude.</span></div>
@@ -749,9 +750,9 @@ body{overflow-x:hidden} button,input,textarea,select{font:inherit} button{cursor
 
     <article class="map-card">
       <h3>Sketch Map from DLS-CSB</h3>
-      <div class="map-placeholder-frame">
-        <div class="map-placeholder-icon">🗺️</div>
-      </div>
+      <button class="map-image-button" type="button" id="mapImageButton" aria-label="Open the sketch map">
+        <img src="./sketch-map.jpg" alt="Sketch map from DLS-CSB to SRDKC in Tondo, Manila">
+      </button>
     </article>
   </article>
 </section>
@@ -764,8 +765,8 @@ body{overflow-x:hidden} button,input,textarea,select{font:inherit} button{cursor
       <article class="deployment">
         <div class="video-wrap">
           <span class="video-badge">1st Deployment</span>
-          <video controls playsinline preload="metadata" poster="assets/first-deployment-poster.jpg">
-            <source src="assets/first-deployment.mp4" type="video/mp4">
+          <video controls playsinline preload="metadata" poster="./first-deployment-poster.jpg">
+            <source src="./first-deployment.mp4" type="video/mp4">
             Your browser does not support the video.
           </video>
         </div>
@@ -794,8 +795,8 @@ body{overflow-x:hidden} button,input,textarea,select{font:inherit} button{cursor
       <article class="deployment">
         <div class="video-wrap">
           <span class="video-badge">2nd Deployment</span>
-          <video controls playsinline preload="metadata" poster="assets/second-deployment-poster.jpg">
-            <source src="assets/second-deployment.mp4" type="video/mp4">
+          <video controls playsinline preload="metadata" poster="./second-deployment-poster.jpg">
+            <source src="./second-deployment.mp4" type="video/mp4">
             Your browser does not support the video.
           </video>
         </div>
@@ -877,57 +878,63 @@ body{overflow-x:hidden} button,input,textarea,select{font:inherit} button{cursor
     <h2 class="title">Meet Team HIRAYA.</h2>
 
     <div class="team-grid">
-      <button class="member" style="--tone:var(--yellow)" data-name="Aivan Mark Aguilar" data-degree="Bachelor of Science in Information Systems">
+      <button class="member" type="button" style="--tone:var(--yellow)" data-name="Aivan Mark Aguilar" data-degree="Bachelor of Science in Information Systems">
         <div class="portrait"><span>👤</span></div>
         <h3>Aivan Mark Aguilar</h3>
         <p>1st Year · BS Information Systems</p>
         <small>Open reflection →</small>
       </button>
 
-      <button class="member" style="--tone:var(--blue)" data-name="Gabriel Andre Cuevas" data-degree="Bachelor of Science in Cybersecurity">
+      <button class="member" type="button" style="--tone:var(--blue)" data-name="Gabriel Andre Cuevas" data-degree="Bachelor of Science in Cybersecurity">
         <div class="portrait"><span>👤</span></div>
         <h3>Gabriel Andre Cuevas</h3>
         <p>1st Year · BS Cybersecurity</p>
         <small>Open reflection →</small>
       </button>
 
-      <button class="member" style="--tone:var(--peach)" data-name="Ethan Jarren Diego" data-degree="Bachelor of Science in Information Systems">
+      <button class="member" type="button" style="--tone:var(--peach)" data-name="Ethan Jarren Diego" data-degree="Bachelor of Science in Information Systems">
         <div class="portrait"><span>👤</span></div>
         <h3>Ethan Jarren Diego</h3>
         <p>1st Year · BS Information Systems</p>
         <small>Open reflection →</small>
       </button>
 
-      <button class="member" style="--tone:var(--green2)" data-name="Shawn Ysmael Grefaldeo" data-degree="Bachelor of Science in Information Systems">
-          <img src="assets/shawn.jpg" alt="Shawn Ysmael Grefaldeo">
+      <button class="member" type="button" style="--tone:var(--green2)" data-name="Shawn Ysmael Grefaldeo" data-degree="Bachelor of Science in Information Systems">
+        <div class="portrait">
+          <img src="./shawn.jpg" alt="Shawn Ysmael Grefaldeo" loading="lazy">
+        </div>
         <h3>Shawn Ysmael Grefaldeo</h3>
         <p>1st Year · BS Information Systems</p>
         <small>Open reflection →</small>
       </button>
 
-      <button class="member" style="--tone:var(--purple)" data-name="Marie Agnes Javellana" data-degree="Bachelor of Arts in Multimedia Arts">
+      <button class="member" type="button" style="--tone:var(--purple)" data-name="Marie Agnes Javellana" data-degree="Bachelor of Arts in Multimedia Arts">
         <div class="portrait"><span>👤</span></div>
         <h3>Marie Agnes Javellana</h3>
         <p>1st Year · BA Multimedia Arts</p>
         <small>Open reflection →</small>
       </button>
 
-      <button class="member" style="--tone:var(--pink)" data-name="Ethan Austin Manalili" data-degree="Bachelor of Science in Information Systems">
+      <button class="member" type="button" style="--tone:var(--pink)" data-name="Ethan Austin Manalili" data-degree="Bachelor of Science in Information Systems">
         <div class="portrait"><span>👤</span></div>
         <h3>Ethan Austin Manalili</h3>
         <p>1st Year · BS Information Systems</p>
         <small>Open reflection →</small>
       </button>
 
-      <button class="member" style="--tone:var(--yellow)" data-name="Aaron Matthew Natividad" data-degree="Bachelor of Science in Information Systems">
-          <img src="assets/aaron.jpg" alt="Aaron Matthew Natividad">
+      <button class="member" type="button" style="--tone:var(--yellow)" data-name="Aaron Matthew Natividad" data-degree="Bachelor of Science in Information Systems">
+        <div class="portrait">
+          <img src="./aaron.jpg" alt="Aaron Matthew Natividad" loading="lazy">
+        </div>
         <h3>Aaron Matthew Natividad</h3>
         <p>1st Year · BS Information Systems</p>
         <small>Open reflection →</small>
       </button>
 
-      <button class="member" style="--tone:var(--green2)" data-name="Marjorie Ann Yulo" data-degree="Bachelor of Science in Information Systems">
-        <img src="assets/marjorie.jpg" alt="Marjorie Ann Yulo" />
+      <button class="member" type="button" style="--tone:var(--green2)" data-name="Marjorie Ann Yulo" data-degree="Bachelor of Science in Information Systems">
+        <div class="portrait">
+          <img src="./marjorie.jpg" alt="Marjorie Ann Yulo" loading="lazy">
+        </div>
         <h3>Marjorie Ann Yulo</h3>
         <p>1st Year · BS Information Systems</p>
         <small>Open reflection →</small>
@@ -943,13 +950,13 @@ body{overflow-x:hidden} button,input,textarea,select{font:inherit} button{cursor
     <div class="documentation-gallery">
       <article class="photo-slot">
         <div class="photo-placeholder filled-photo">
-          <img src="assets/documentation-first-deployment.jpg" alt="1st Deployment group photo for HIRAYA documentation">
+          <img src="./documentation-first-deployment.jpg" alt="1st Deployment group photo for HIRAYA documentation">
         </div>
         <h3>1st Deployment</h3>
       </article>
       <article class="photo-slot">
         <div class="photo-placeholder filled-photo">
-          <img src="assets/documentation-second-deployment.jpg" alt="2nd Deployment group photo for HIRAYA documentation">
+          <img src="./documentation-second-deployment.jpg" alt="2nd Deployment group photo for HIRAYA documentation">
         </div>
         <h3>2nd Deployment</h3>
       </article>
@@ -1007,21 +1014,19 @@ body{overflow-x:hidden} button,input,textarea,select{font:inherit} button{cursor
     </article>
 
     <div class="deployment-photo-grid">
-      <label class="polaroid-frame first-frame">
+      <article class="polaroid-frame first-frame">
         <span class="photo-ribbon">1st Deployment</span>
-        <div class="deployment-group-photo" id="firstDeploymentGroupPhoto">
-          <span class="photo-plus">＋</span>
+        <div class="deployment-group-photo">
+          <img src="./first-deployments.jpg" alt="Team HIRAYA during the first deployment" loading="lazy">
         </div>
-        <input type="file" accept="image/*" id="firstDeploymentGroupPhotoInput">
-      </label>
+      </article>
 
-      <label class="polaroid-frame second-frame">
+      <article class="polaroid-frame second-frame">
         <span class="photo-ribbon">2nd Deployment</span>
-        <div class="deployment-group-photo" id="secondDeploymentGroupPhoto">
-          <span class="photo-plus">＋</span>
+        <div class="deployment-group-photo">
+          <img src="./2nd-deployment.jpg" alt="Team HIRAYA during the second deployment" loading="lazy">
         </div>
-        <input type="file" accept="image/*" id="secondDeploymentGroupPhotoInput">
-      </label>
+      </article>
     </div>
   </article>
 </section>
@@ -1037,6 +1042,7 @@ body{overflow-x:hidden} button,input,textarea,select{font:inherit} button{cursor
   <div class="modal-card compact-modal">
     <button class="close" data-close>✕</button>
     <h2>Leave a Message or Feedback</h2>
+    <p class="form-note">This demo stores messages only in the current browser. A shared online inbox requires a separate form or database service.</p>
 
     <form class="feedback-form" id="feedbackForm">
       <div class="row">
@@ -1075,16 +1081,59 @@ body{overflow-x:hidden} button,input,textarea,select{font:inherit} button{cursor
   </div>
 </div>
 
-<div class="lightbox" id="lightbox"><button class="close" data-lightbox-close>✕</button><img src="assets/hiraya-corner.jpg" alt="Enlarged HIRAYA Corner"></div>
+<div class="lightbox" id="lightbox"><button class="close" data-lightbox-close>✕</button><img src="./hiraya-corner.png" alt="Enlarged HIRAYA Corner"></div>
 
 <div class="toast" id="toast">Saved!</div>
 
 <script>
 const labels={home:'Home',story:'Project Story',partner:'Partner Center',deployment:'Deployment',feedback:'Participant Feedback',team:'Team',documentation:'Documentation',summary:'Summary'};
-const navBtns=[...document.querySelectorAll('.nav-btn')]; const views=[...document.querySelectorAll('.view')]; const visited=new Set(['home']);
-function showView(id){views.forEach(v=>v.classList.toggle('active',v.id===id));navBtns.forEach(b=>b.classList.toggle('active',b.dataset.view===id));document.getElementById('crumb').textContent=labels[id];visited.add(id);document.getElementById('progressText').textContent=visited.size+' of 8';document.getElementById('progressFill').style.width=(visited.size/8*100)+'%';localStorage.setItem('hiraya_visited_v2',JSON.stringify([...visited]));window.scrollTo({top:0,behavior:'smooth'});} 
-try{JSON.parse(localStorage.getItem('hiraya_visited_v2')||'[]').forEach(v=>visited.add(v))}catch(e){}
-navBtns.forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view))); document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.go)));
+const navBtns=[...document.querySelectorAll('.nav-btn')];
+const views=[...document.querySelectorAll('.view')];
+const validViews=new Set(views.map(view=>view.id));
+const visited=new Set(['home']);
+
+function readLocal(key,fallback){
+  try{
+    const value=localStorage.getItem(key);
+    return value===null?fallback:JSON.parse(value);
+  }catch(error){
+    return fallback;
+  }
+}
+
+function writeLocal(key,value){
+  try{localStorage.setItem(key,JSON.stringify(value));}catch(error){}
+}
+
+function updateProgress(){
+  const count=Math.min(visited.size,validViews.size);
+  document.getElementById('progressText').textContent=count+' of '+validViews.size;
+  document.getElementById('progressFill').style.width=(count/validViews.size*100)+'%';
+}
+
+function showView(requestedId,{updateHash=true}={}){
+  const id=validViews.has(requestedId)?requestedId:'home';
+  views.forEach(view=>view.classList.toggle('active',view.id===id));
+  navBtns.forEach(button=>button.classList.toggle('active',button.dataset.view===id));
+  document.getElementById('crumb').textContent=labels[id]||'Home';
+  visited.add(id);
+  updateProgress();
+  writeLocal('hiraya_visited_v2',[...visited]);
+  if(updateHash) history.replaceState(null,'','#'+id);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+const savedVisited=readLocal('hiraya_visited_v2',[]);
+if(Array.isArray(savedVisited)){
+  savedVisited.forEach(id=>{if(validViews.has(id)) visited.add(id);});
+}
+updateProgress();
+
+navBtns.forEach(button=>button.addEventListener('click',()=>showView(button.dataset.view)));
+document.querySelectorAll('[data-go]').forEach(button=>button.addEventListener('click',()=>showView(button.dataset.go)));
+
+const initialView=location.hash.replace('#','');
+if(validViews.has(initialView)) showView(initialView,{updateHash:false});
 document.querySelectorAll('.switch').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.switch').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.subpanel').forEach(p=>p.classList.remove('active'));btn.classList.add('active');document.getElementById(btn.dataset.sub).classList.add('active');}));
 document.querySelectorAll('.details-toggle').forEach(btn=>btn.addEventListener('click',()=>{const details=btn.nextElementSibling;const open=details.classList.toggle('open');btn.textContent=open?'Hide details ↑':'View what we did ↓';}));
 const affirmations={happy:'Keep this joyful moment close and share a little warmth today. 🌼',calm:'You are allowed to slow down. Peace is productive too. 🌿',tired:'Rest is not weakness. Your mind and body deserve care. ☁️',sad:'You do not have to carry everything alone. It is okay to ask for support. 💛',worried:'Take one small step at a time. You are stronger than this moment feels. 🌱'};
@@ -1093,12 +1142,29 @@ document.getElementById('affirmBtn').addEventListener('click',()=>{const list=Ob
 
 const reflectionModal=document.getElementById('reflectionModal');document.querySelectorAll('.member').forEach(m=>m.addEventListener('click',e=>{if(e.target.closest('.upload-label')) return;document.getElementById('reflectionName').textContent=m.dataset.name;document.getElementById('reflectionDegree').textContent='1st Year · '+m.dataset.degree;reflectionModal.classList.add('open');}));
 document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>b.closest('.modal').classList.remove('open')));document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open')}));document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal,.lightbox').forEach(m=>m.classList.remove('open'));}});
-const board=document.getElementById('boardImage'), lightbox=document.getElementById('lightbox');board.addEventListener('click',()=>lightbox.classList.add('open'));document.querySelector('[data-lightbox-close]').addEventListener('click',()=>lightbox.classList.remove('open'));lightbox.addEventListener('click',e=>{if(e.target===lightbox)lightbox.classList.remove('open')});
+const board=document.getElementById('boardImage');
+const mapButton=document.getElementById('mapImageButton');
+const lightbox=document.getElementById('lightbox');
+const lightboxImage=lightbox.querySelector('img');
+
+function openLightbox(src,alt){
+  lightboxImage.src=src;
+  lightboxImage.alt=alt;
+  lightbox.classList.add('open');
+}
+
+board?.addEventListener('click',()=>openLightbox(board.currentSrc||board.src,board.alt));
+mapButton?.addEventListener('click',()=>{
+  const mapImage=mapButton.querySelector('img');
+  openLightbox(mapImage.currentSrc||mapImage.src,mapImage.alt);
+});
+document.querySelector('[data-lightbox-close]')?.addEventListener('click',()=>lightbox.classList.remove('open'));
+lightbox.addEventListener('click',event=>{if(event.target===lightbox)lightbox.classList.remove('open')});
 
 
 
-let feedback=[];
-try{feedback=JSON.parse(localStorage.getItem('hiraya_feedback_v4')||'[]')}catch(e){}
+let feedback=readLocal('hiraya_feedback_v4',[]);
+if(!Array.isArray(feedback)) feedback=[];
 const tones=['#f6d467','#edafc4','#a6cfdf','#c8b7e5','#91b394'];
 const ADMIN_PIN='2026';
 
@@ -1122,7 +1188,7 @@ function renderFeedback(){
     card.querySelector('footer').textContent='— '+(item.name||'Anonymous');
     card.querySelector('.delete').addEventListener('click',()=>{
       feedback.splice(index,1);
-      localStorage.setItem('hiraya_feedback_v4',JSON.stringify(feedback));
+      writeLocal('hiraya_feedback_v4',feedback);
       renderFeedback();
       toast('Message removed');
     });
@@ -1169,19 +1235,44 @@ document.getElementById('feedbackForm').addEventListener('submit',event=>{
     text
   });
 
-  localStorage.setItem('hiraya_feedback_v4',JSON.stringify(feedback));
+  writeLocal('hiraya_feedback_v4',feedback);
   event.target.reset();
   feedbackFormModal.classList.remove('open');
-  toast('Your message was submitted');
+  toast('Message saved on this device');
 });
 
-function handleImageInput(input, storageKey, targetId){input.addEventListener('change',()=>{const file=input.files[0]; if(!file) return; const reader=new FileReader(); reader.onload=e=>{localStorage.setItem(storageKey,e.target.result); document.getElementById(targetId).innerHTML='<img src="'+e.target.result+'" alt="Uploaded image">'; toast('Photo added');}; reader.readAsDataURL(file);});}
-function loadStoredImage(storageKey, targetId){const data=localStorage.getItem(storageKey); if(data){document.getElementById(targetId).innerHTML='<img src="'+data+'" alt="Uploaded image">';}}
 
-handleImageInput(document.getElementById('firstDeploymentGroupPhotoInput'),'hiraya_first_deployment_group_photo','firstDeploymentGroupPhoto');
-loadStoredImage('hiraya_first_deployment_group_photo','firstDeploymentGroupPhoto');
-handleImageInput(document.getElementById('secondDeploymentGroupPhotoInput'),'hiraya_second_deployment_group_photo','secondDeploymentGroupPhoto');
-loadStoredImage('hiraya_second_deployment_group_photo','secondDeploymentGroupPhoto');
+/* Works whether media files are in the repository root or inside /assets. */
+document.querySelectorAll('img[src^="./"]').forEach(image=>{
+  const useAssetsFolder=function(){
+    if(this.dataset.assetsFallback==='done') return;
+    this.dataset.assetsFallback='done';
+    const filename=this.getAttribute('src').split('/').pop();
+    this.src='./assets/'+filename;
+  };
+  image.addEventListener('error',useAssetsFolder);
+  if(image.complete&&image.naturalWidth===0) useAssetsFolder.call(image);
+});
+
+document.querySelectorAll('video source[src^="./"]').forEach(source=>{
+  source.addEventListener('error',function useAssetsFolder(){
+    if(this.dataset.assetsFallback==='done') return;
+    this.dataset.assetsFallback='done';
+    const filename=this.getAttribute('src').split('/').pop();
+    this.src='./assets/'+filename;
+    this.closest('video')?.load();
+  });
+});
+
+document.querySelectorAll('video[poster^="./"]').forEach(video=>{
+  const posterCheck=new Image();
+  posterCheck.onerror=()=>{
+    const filename=video.getAttribute('poster').split('/').pop();
+    video.poster='./assets/'+filename;
+  };
+  posterCheck.src=video.poster;
+});
+
 function toast(message){const t=document.getElementById('toast');t.textContent=message;t.classList.add('show');clearTimeout(window._toast);window._toast=setTimeout(()=>t.classList.remove('show'),2400);}
 </script>
 </body></html>
