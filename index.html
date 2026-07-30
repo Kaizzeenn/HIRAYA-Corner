@@ -1019,6 +1019,18 @@ body.gallery-open{overflow:hidden}
   .gallery-photo-count{right:16px;top:16px}
 }
 
+
+.documentation-video-summary{
+  max-width:720px;
+  margin:9px 0 0;
+  color:var(--muted);
+  font-size:.82rem;
+  line-height:1.55;
+}
+.combined-deployment-video .documentation-video-heading{
+  align-items:flex-start;
+}
+
 </style>
 </head>
 <body>
@@ -1340,7 +1352,7 @@ body.gallery-open{overflow:hidden}
           <strong>1st Deployment</strong>
           <small>View photo gallery <span aria-hidden="true">→</span></small>
         </span>
-        <span class="gallery-photo-count">6 photos</span>
+        <span class="gallery-photo-count">15 photos</span>
       </button>
 
       <button class="gallery-cover-card second-cover" type="button" data-gallery="second" aria-label="Open the 2nd Deployment photo gallery">
@@ -1354,25 +1366,22 @@ body.gallery-open{overflow:hidden}
       </button>
     </div>
 
-    <article class="documentation-video-card">
+    <article class="documentation-video-card combined-deployment-video">
       <div class="documentation-video-heading">
         <div>
           <span class="documentation-video-kicker">Video Documentation</span>
-          <h3>Group-Made Deployment Video</h3>
-        </div>
-        <div class="documentation-video-tabs" role="tablist" aria-label="Choose deployment video">
-          <button class="documentation-video-tab active" type="button" data-video-src="first-deployment.mp4" data-video-poster="first-deployment-poster.jpg" data-video-label="1st Deployment" aria-selected="true">1st Deployment</button>
-          <button class="documentation-video-tab" type="button" data-video-src="second-deployment.mp4" data-video-poster="second-deployment-poster.jpg" data-video-label="2nd Deployment" aria-selected="false">2nd Deployment</button>
+          <h3>1st and 2nd Deployment Summary</h3>
+          <p class="documentation-video-summary">A group-made video highlighting the activities, experiences, and key moments from both community deployments.</p>
         </div>
       </div>
 
       <div class="documentation-video-frame">
-        <video id="documentationProjectVideo" controls playsinline preload="metadata" poster="first-deployment-poster.jpg">
-          <source id="documentationProjectVideoSource" src="first-deployment.mp4" type="video/mp4">
+        <video id="documentationProjectVideo" controls playsinline preload="metadata" poster="hiraya-deployment-summary-poster.jpg">
+          <source src="hiraya-deployment-summary.mp4" type="video/mp4">
           Your browser does not support the video.
         </video>
       </div>
-      <div class="documentation-video-caption" id="documentationVideoCaption">1st Deployment video</div>
+      <div class="documentation-video-caption">Summary of the 1st and 2nd Deployments</div>
     </article>
   </article>
 </section>
@@ -1604,6 +1613,15 @@ const documentationGalleries={
       {src:'gallery-first-01.jpg',alt:'Participants and facilitators during the first deployment.',caption:'Facilitators guiding the participants through the program.'},
       {src:'gallery-first-02.jpg',alt:'Students taking part in a first deployment discussion.',caption:'Students participating in the group discussion.'},
       {src:'gallery-first-03.jpg',alt:'Students listening during the first deployment.',caption:'Participants engaging with the activity facilitators.'},
+      {src:'gallery-first-04.jpg',alt:'Participants and Team HIRAYA during a first deployment activity.',caption:'Participants and facilitators sharing a lively moment during the program.'},
+      {src:'gallery-first-05.jpg',alt:'Participants gathered around the HIRAYA Board during the first deployment.',caption:'The group working together around the developing HIRAYA Board.'},
+      {src:'gallery-first-06.jpg',alt:'Team HIRAYA facilitators holding activity character paddles.',caption:'Facilitators preparing creative materials for the first deployment activities.'},
+      {src:'gallery-first-07.jpg',alt:'Participants decorating the HIRAYA Board with notes and colorful designs.',caption:'Participants designing and personalizing the HIRAYA Board.'},
+      {src:'gallery-first-08.jpg',alt:'Team HIRAYA facilitating a seated group activity during the first deployment.',caption:'A facilitated activity and discussion with the participants.'},
+      {src:'gallery-first-09.jpg',alt:'Team HIRAYA members presenting emotion illustrations to participants.',caption:'Facilitators presenting the emotion-identification activity.'},
+      {src:'gallery-first-10.jpg',alt:'Participants seated together during a first deployment activity.',caption:'Participants engaging in the group activity and discussion.'},
+      {src:'gallery-first-11.jpg',alt:'Participants and facilitators observing a quiet opening moment.',caption:'A reflective opening moment during the first deployment.'},
+      {src:'gallery-first-12.jpg',alt:'Team HIRAYA facilitators presenting emotion cards beside the HIRAYA Board.',caption:'Facilitators guiding the Guess the Emotion activity.'},
       {src:'hiraya-corner.png',alt:'The colorful HIRAYA Board completed during the project.',caption:'The HIRAYA Board filled with gratitude notes, affirmations, hearts, stars, and flowers.'}
     ]
   },
@@ -1705,24 +1723,6 @@ document.addEventListener('keydown',event=>{
   if(event.key==='ArrowLeft') moveDocumentationGallery(-1);
   if(event.key==='ArrowRight') moveDocumentationGallery(1);
   if(event.key==='Escape') closeDocumentationGallery();
-});
-
-const documentationProjectVideo=document.getElementById('documentationProjectVideo');
-const documentationProjectVideoSource=document.getElementById('documentationProjectVideoSource');
-const documentationVideoCaption=document.getElementById('documentationVideoCaption');
-document.querySelectorAll('.documentation-video-tab').forEach(tab=>{
-  tab.addEventListener('click',()=>{
-    document.querySelectorAll('.documentation-video-tab').forEach(button=>{
-      const isActive=button===tab;
-      button.classList.toggle('active',isActive);
-      button.setAttribute('aria-selected',String(isActive));
-    });
-    documentationProjectVideo.pause();
-    documentationProjectVideoSource.src=tab.dataset.videoSrc;
-    documentationProjectVideo.poster=tab.dataset.videoPoster;
-    documentationProjectVideo.load();
-    documentationVideoCaption.textContent=tab.dataset.videoLabel+' video';
-  });
 });
 
 let feedback=readLocal('hiraya_feedback_v4',[]);

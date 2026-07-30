@@ -76,3 +76,13 @@ DOCUMENTATION GALLERY UPDATE
 - Added a Group-Made Deployment Video player below the galleries.
 - The single player switches between the existing 1st and 2nd deployment videos.
 - Added six compressed gallery stills extracted from the existing deployment videos.
+
+FIRST DEPLOYMENT GALLERY UPDATE
+- Added nine new first-deployment photos.
+- The first-deployment gallery now contains 15 photos.
+- New images were optimized for faster loading on phones and Windows.
+
+DEPLOYMENT SUMMARY VIDEO UPDATE
+- Removed the 1st/2nd Deployment video tabs from Documentation.
+- Added the uploaded HIRAYA CORNER video as one combined summary of both deployments.
+- Converted the uploaded HEVC video to browser-compatible H.264 MP4.
