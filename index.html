@@ -711,6 +711,314 @@ body{overflow-x:hidden} button,input,textarea,select{font:inherit} button{cursor
   object-position:center 44%;
 }
 
+
+/* ===== Interactive Documentation Galleries ===== */
+.documentation-panel{overflow:visible}
+.deployment-gallery-covers{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+  margin-top:18px;
+}
+.gallery-cover-card{
+  position:relative;
+  min-height:330px;
+  padding:0;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:27px;
+  background:#dfe7df;
+  box-shadow:var(--shadow);
+  text-align:left;
+  isolation:isolate;
+  transition:transform .28s var(--ease),box-shadow .28s var(--ease);
+}
+.gallery-cover-card::before{
+  content:"";
+  position:absolute;
+  inset:12px;
+  z-index:2;
+  border:1px solid rgba(255,255,255,.58);
+  border-radius:19px;
+  pointer-events:none;
+}
+.gallery-cover-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 27px 62px rgba(53,73,59,.20);
+}
+.gallery-cover-card:focus-visible{
+  outline:4px solid rgba(82,116,91,.25);
+  outline-offset:4px;
+}
+.gallery-cover-card img{
+  width:100%;
+  height:100%;
+  min-height:330px;
+  object-fit:cover;
+  transition:transform .6s var(--ease),filter .35s var(--ease);
+}
+.gallery-cover-card:hover img{transform:scale(1.045);filter:saturate(1.05)}
+.gallery-cover-shade{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:linear-gradient(180deg,rgba(21,31,24,.03) 38%,rgba(21,31,24,.78) 100%);
+}
+.gallery-cover-copy{
+  position:absolute;
+  left:26px;
+  right:26px;
+  bottom:24px;
+  z-index:3;
+  color:#fff;
+}
+.gallery-cover-copy strong{
+  display:block;
+  margin-bottom:6px;
+  font-family:Georgia,serif;
+  font-size:clamp(1.5rem,2.7vw,2.25rem);
+  line-height:1;
+  text-shadow:0 4px 16px rgba(0,0,0,.26);
+}
+.gallery-cover-copy small{
+  font-size:.79rem;
+  font-weight:850;
+  letter-spacing:.02em;
+  color:rgba(255,255,255,.86);
+}
+.gallery-photo-count{
+  position:absolute;
+  right:22px;
+  top:21px;
+  z-index:3;
+  padding:8px 11px;
+  border-radius:999px;
+  background:rgba(255,254,249,.90);
+  color:var(--green);
+  font-size:.68rem;
+  font-weight:900;
+  backdrop-filter:blur(10px);
+  box-shadow:var(--soft);
+}
+
+.documentation-video-card{
+  margin-top:24px;
+  padding:clamp(19px,3vw,28px);
+  border:1px solid var(--line);
+  border-radius:28px;
+  background:
+    radial-gradient(circle at 92% 8%,rgba(246,212,103,.24),transparent 23%),
+    linear-gradient(145deg,#fffef9,#f4f8f3);
+  box-shadow:var(--shadow);
+}
+.documentation-video-heading{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom:16px;
+}
+.documentation-video-kicker,
+.deployment-gallery-kicker{
+  display:block;
+  margin-bottom:5px;
+  color:var(--green);
+  font-size:.65rem;
+  font-weight:900;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+.documentation-video-heading h3{
+  margin:0;
+  font-family:Georgia,serif;
+  font-size:clamp(1.45rem,3vw,2.15rem);
+}
+.documentation-video-tabs{
+  display:inline-flex;
+  gap:5px;
+  padding:5px;
+  border-radius:16px;
+  background:#eaf0ea;
+}
+.documentation-video-tab{
+  border:0;
+  border-radius:12px;
+  padding:9px 12px;
+  background:transparent;
+  color:#637068;
+  font-size:.72rem;
+  font-weight:900;
+  transition:.2s var(--ease);
+}
+.documentation-video-tab.active{
+  background:#fff;
+  color:var(--green);
+  box-shadow:var(--soft);
+}
+.documentation-video-frame{
+  overflow:hidden;
+  aspect-ratio:16/9;
+  border-radius:21px;
+  background:#172019;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 14px 32px rgba(25,36,28,.17);
+}
+.documentation-video-frame video{width:100%;height:100%;object-fit:contain;background:#111}
+.documentation-video-caption{
+  margin-top:10px;
+  color:var(--muted);
+  font-size:.76rem;
+  font-weight:800;
+  text-align:center;
+}
+
+.deployment-gallery-modal{
+  position:fixed;
+  inset:0;
+  z-index:6000;
+  display:none;
+  place-items:center;
+  padding:clamp(10px,2.5vw,28px);
+  background:rgba(19,27,21,.82);
+  backdrop-filter:blur(16px);
+}
+.deployment-gallery-modal.open{display:grid;animation:galleryFade .25s ease}
+@keyframes galleryFade{from{opacity:0}to{opacity:1}}
+.deployment-gallery-dialog{
+  width:min(1180px,100%);
+  max-height:94vh;
+  display:grid;
+  grid-template-rows:auto minmax(0,1fr) auto;
+  gap:13px;
+  padding:clamp(15px,2vw,23px);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:30px;
+  background:rgba(255,254,249,.97);
+  box-shadow:0 35px 100px rgba(0,0,0,.46);
+  overflow:hidden;
+}
+.deployment-gallery-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.deployment-gallery-header h2{
+  margin:0;
+  font-family:Georgia,serif;
+  font-size:clamp(1.45rem,3vw,2.15rem);
+}
+.deployment-gallery-header-actions{display:flex;align-items:center;gap:10px}
+.deployment-gallery-counter{
+  padding:8px 11px;
+  border-radius:999px;
+  background:#edf3ed;
+  color:var(--green);
+  font-size:.71rem;
+  font-weight:900;
+}
+.deployment-gallery-close{
+  width:42px;
+  height:42px;
+  border:0;
+  border-radius:14px;
+  background:#fff;
+  color:var(--ink);
+  box-shadow:var(--soft);
+  font-weight:900;
+}
+.deployment-gallery-stage{
+  position:relative;
+  min-height:0;
+  display:grid;
+  grid-template-columns:52px minmax(0,1fr) 52px;
+  align-items:center;
+  gap:12px;
+}
+.deployment-gallery-figure{
+  min-width:0;
+  height:100%;
+  max-height:67vh;
+  margin:0;
+  display:grid;
+  grid-template-rows:minmax(0,1fr) auto;
+  overflow:hidden;
+  border-radius:22px;
+  background:#101511;
+  box-shadow:0 16px 38px rgba(31,43,34,.20);
+}
+.deployment-gallery-figure img{
+  width:100%;
+  height:100%;
+  min-height:300px;
+  object-fit:contain;
+  background:#101511;
+}
+.deployment-gallery-figure figcaption{
+  padding:10px 14px;
+  background:#fff;
+  color:var(--muted);
+  font-size:.77rem;
+  line-height:1.45;
+  text-align:center;
+}
+.deployment-gallery-nav{
+  width:50px;
+  height:50px;
+  border:0;
+  border-radius:17px;
+  background:#fff;
+  color:var(--green);
+  box-shadow:var(--soft);
+  font-family:Georgia,serif;
+  font-size:2rem;
+  line-height:1;
+  transition:.2s var(--ease);
+}
+.deployment-gallery-nav:hover{transform:scale(1.06);background:var(--green);color:#fff}
+.deployment-gallery-thumbnails{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:2px 2px 7px;
+  scrollbar-width:thin;
+}
+.deployment-gallery-thumbnail{
+  flex:0 0 112px;
+  height:70px;
+  padding:3px;
+  border:2px solid transparent;
+  border-radius:13px;
+  background:#e6ece7;
+  opacity:.68;
+  transition:.18s var(--ease);
+}
+.deployment-gallery-thumbnail img{width:100%;height:100%;object-fit:cover;border-radius:9px}
+.deployment-gallery-thumbnail.active{border-color:var(--green);background:#fff;opacity:1;transform:translateY(-2px)}
+body.gallery-open{overflow:hidden}
+
+@media(max-width:760px){
+  .deployment-gallery-covers{grid-template-columns:1fr}
+  .gallery-cover-card,.gallery-cover-card img{min-height:285px}
+  .documentation-video-heading{align-items:flex-start;flex-direction:column}
+  .documentation-video-tabs{width:100%;display:grid;grid-template-columns:1fr 1fr}
+  .documentation-video-tab{padding:10px 8px}
+  .deployment-gallery-modal{padding:0}
+  .deployment-gallery-dialog{width:100%;height:100dvh;max-height:none;border-radius:0;padding:13px;grid-template-rows:auto minmax(0,1fr) auto}
+  .deployment-gallery-stage{grid-template-columns:1fr;gap:0}
+  .deployment-gallery-nav{position:absolute;z-index:4;top:46%;width:43px;height:43px;border-radius:15px;background:rgba(255,255,255,.91)}
+  .deployment-gallery-nav.previous{left:9px}
+  .deployment-gallery-nav.next{right:9px}
+  .deployment-gallery-figure{max-height:none;height:100%}
+  .deployment-gallery-figure img{min-height:0}
+  .deployment-gallery-thumbnail{flex-basis:88px;height:57px}
+}
+
+@media(max-width:420px){
+  .gallery-cover-card,.gallery-cover-card img{min-height:245px}
+  .gallery-cover-copy{left:20px;right:20px;bottom:19px}
+  .gallery-photo-count{right:16px;top:16px}
+}
+
 </style>
 </head>
 <body>
@@ -1021,31 +1329,51 @@ body{overflow-x:hidden} button,input,textarea,select{font:inherit} button{cursor
 </section>
 
     <section class="view" id="documentation">
-  <article class="panel pad">
+  <article class="panel pad documentation-panel">
     <h2 class="title">Documentation</h2>
 
-    <div class="documentation-gallery">
-      <article class="photo-slot">
-        <div class="photo-placeholder filled-photo">
-          <img src="./documentation-first-deployment.jpg" alt="1st Deployment group photo for HIRAYA documentation">
-        </div>
-        <h3>1st Deployment</h3>
-      </article>
-      <article class="photo-slot">
-        <div class="photo-placeholder filled-photo">
-          <img src="./documentation-second-deployment.jpg" alt="2nd Deployment group photo for HIRAYA documentation">
-        </div>
-        <h3>2nd Deployment</h3>
-      </article>
-      <article class="photo-slot">
-        <div class="photo-placeholder"><span>＋</span></div>
-        <h3>Consultations with the NSTP Teacher</h3>
-      </article>
-      <article class="photo-slot">
-        <div class="photo-placeholder"><span>＋</span></div>
-        <h3>Meetings with the Partner Center</h3>
-      </article>
+    <div class="deployment-gallery-covers">
+      <button class="gallery-cover-card first-cover" type="button" data-gallery="first" aria-label="Open the 1st Deployment photo gallery">
+        <img src="documentation-first-deployment.jpg" alt="Team HIRAYA and participants during the 1st Deployment" loading="lazy">
+        <span class="gallery-cover-shade"></span>
+        <span class="gallery-cover-copy">
+          <strong>1st Deployment</strong>
+          <small>View photo gallery <span aria-hidden="true">→</span></small>
+        </span>
+        <span class="gallery-photo-count">6 photos</span>
+      </button>
+
+      <button class="gallery-cover-card second-cover" type="button" data-gallery="second" aria-label="Open the 2nd Deployment photo gallery">
+        <img src="documentation-second-deployment.jpg" alt="Team HIRAYA and participants during the 2nd Deployment" loading="lazy">
+        <span class="gallery-cover-shade"></span>
+        <span class="gallery-cover-copy">
+          <strong>2nd Deployment</strong>
+          <small>View photo gallery <span aria-hidden="true">→</span></small>
+        </span>
+        <span class="gallery-photo-count">5 photos</span>
+      </button>
     </div>
+
+    <article class="documentation-video-card">
+      <div class="documentation-video-heading">
+        <div>
+          <span class="documentation-video-kicker">Video Documentation</span>
+          <h3>Group-Made Deployment Video</h3>
+        </div>
+        <div class="documentation-video-tabs" role="tablist" aria-label="Choose deployment video">
+          <button class="documentation-video-tab active" type="button" data-video-src="first-deployment.mp4" data-video-poster="first-deployment-poster.jpg" data-video-label="1st Deployment" aria-selected="true">1st Deployment</button>
+          <button class="documentation-video-tab" type="button" data-video-src="second-deployment.mp4" data-video-poster="second-deployment-poster.jpg" data-video-label="2nd Deployment" aria-selected="false">2nd Deployment</button>
+        </div>
+      </div>
+
+      <div class="documentation-video-frame">
+        <video id="documentationProjectVideo" controls playsinline preload="metadata" poster="first-deployment-poster.jpg">
+          <source id="documentationProjectVideoSource" src="first-deployment.mp4" type="video/mp4">
+          Your browser does not support the video.
+        </video>
+      </div>
+      <div class="documentation-video-caption" id="documentationVideoCaption">1st Deployment video</div>
+    </article>
   </article>
 </section>
 
@@ -1158,6 +1486,32 @@ body{overflow-x:hidden} button,input,textarea,select{font:inherit} button{cursor
   </div>
 </div>
 
+<div class="deployment-gallery-modal" id="deploymentGalleryModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="deploymentGalleryTitle">
+  <div class="deployment-gallery-dialog">
+    <div class="deployment-gallery-header">
+      <div>
+        <span class="deployment-gallery-kicker">Documentation Gallery</span>
+        <h2 id="deploymentGalleryTitle">1st Deployment</h2>
+      </div>
+      <div class="deployment-gallery-header-actions">
+        <span class="deployment-gallery-counter" id="deploymentGalleryCounter">1 / 6</span>
+        <button class="deployment-gallery-close" id="deploymentGalleryClose" type="button" aria-label="Close gallery">✕</button>
+      </div>
+    </div>
+
+    <div class="deployment-gallery-stage" id="deploymentGalleryStage">
+      <button class="deployment-gallery-nav previous" id="deploymentGalleryPrevious" type="button" aria-label="Previous photo">‹</button>
+      <figure class="deployment-gallery-figure">
+        <img id="deploymentGalleryImage" src="documentation-first-deployment.jpg" alt="">
+        <figcaption id="deploymentGalleryCaption"></figcaption>
+      </figure>
+      <button class="deployment-gallery-nav next" id="deploymentGalleryNext" type="button" aria-label="Next photo">›</button>
+    </div>
+
+    <div class="deployment-gallery-thumbnails" id="deploymentGalleryThumbnails" aria-label="Gallery thumbnails"></div>
+  </div>
+</div>
+
 <div class="lightbox" id="lightbox"><button class="close" data-lightbox-close>✕</button><img src="hiraya-corner.png" alt="Enlarged HIRAYA Corner"></div>
 
 <div class="toast" id="toast">Saved!</div>
@@ -1239,6 +1593,137 @@ document.querySelector('[data-lightbox-close]')?.addEventListener('click',()=>li
 lightbox.addEventListener('click',event=>{if(event.target===lightbox)lightbox.classList.remove('open')});
 
 
+
+
+const documentationGalleries={
+  first:{
+    title:'1st Deployment',
+    images:[
+      {src:'documentation-first-deployment.jpg',alt:'Team HIRAYA and participants posing with the HIRAYA Board during the first deployment.',caption:'Team HIRAYA and the participants with the completed HIRAYA Board.'},
+      {src:'first-deployment-poster.jpg',alt:'Participants listening during a first deployment activity.',caption:'Participants during the emotional-awareness activities.'},
+      {src:'gallery-first-01.jpg',alt:'Participants and facilitators during the first deployment.',caption:'Facilitators guiding the participants through the program.'},
+      {src:'gallery-first-02.jpg',alt:'Students taking part in a first deployment discussion.',caption:'Students participating in the group discussion.'},
+      {src:'gallery-first-03.jpg',alt:'Students listening during the first deployment.',caption:'Participants engaging with the activity facilitators.'},
+      {src:'hiraya-corner.png',alt:'The colorful HIRAYA Board completed during the project.',caption:'The HIRAYA Board filled with gratitude notes, affirmations, hearts, stars, and flowers.'}
+    ]
+  },
+  second:{
+    title:'2nd Deployment',
+    images:[
+      {src:'documentation-second-deployment.jpg',alt:'Team HIRAYA and participants posing with certificates and the HIRAYA Board during the second deployment.',caption:'Team HIRAYA and participants during the second deployment and turnover.'},
+      {src:'second-deployment-poster.jpg',alt:'Participants during a second deployment activity.',caption:'Participants taking part in the second deployment activities.'},
+      {src:'gallery-second-01.jpg',alt:'Students and facilitators during the second deployment.',caption:'A candid moment during the second deployment.'},
+      {src:'gallery-second-02.jpg',alt:'Students participating during the second deployment.',caption:'Students engaging with Team HIRAYA during the program.'},
+      {src:'gallery-second-03.jpg',alt:'Participants during the second deployment session.',caption:'Participants and facilitators continuing the activities.'}
+    ]
+  }
+};
+
+const deploymentGalleryModal=document.getElementById('deploymentGalleryModal');
+const deploymentGalleryTitle=document.getElementById('deploymentGalleryTitle');
+const deploymentGalleryCounter=document.getElementById('deploymentGalleryCounter');
+const deploymentGalleryImage=document.getElementById('deploymentGalleryImage');
+const deploymentGalleryCaption=document.getElementById('deploymentGalleryCaption');
+const deploymentGalleryThumbnails=document.getElementById('deploymentGalleryThumbnails');
+const deploymentGalleryStage=document.getElementById('deploymentGalleryStage');
+let activeDocumentationGallery='first';
+let activeDocumentationImage=0;
+let galleryTouchStartX=0;
+
+function renderDocumentationGallery(){
+  const gallery=documentationGalleries[activeDocumentationGallery];
+  const item=gallery.images[activeDocumentationImage];
+  deploymentGalleryTitle.textContent=gallery.title;
+  deploymentGalleryCounter.textContent=(activeDocumentationImage+1)+' / '+gallery.images.length;
+  deploymentGalleryImage.src=item.src;
+  deploymentGalleryImage.alt=item.alt;
+  deploymentGalleryCaption.textContent=item.caption;
+
+  deploymentGalleryThumbnails.innerHTML='';
+  gallery.images.forEach((image,index)=>{
+    const button=document.createElement('button');
+    button.type='button';
+    button.className='deployment-gallery-thumbnail'+(index===activeDocumentationImage?' active':'');
+    button.setAttribute('aria-label','Open photo '+(index+1));
+    const thumbnail=document.createElement('img');
+    thumbnail.src=image.src;
+    thumbnail.alt='';
+    thumbnail.loading='lazy';
+    button.appendChild(thumbnail);
+    button.addEventListener('click',()=>{
+      activeDocumentationImage=index;
+      renderDocumentationGallery();
+    });
+    deploymentGalleryThumbnails.appendChild(button);
+  });
+
+  deploymentGalleryThumbnails.querySelector('.active')?.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+}
+
+function openDocumentationGallery(name){
+  if(!documentationGalleries[name]) return;
+  activeDocumentationGallery=name;
+  activeDocumentationImage=0;
+  renderDocumentationGallery();
+  deploymentGalleryModal.classList.add('open');
+  deploymentGalleryModal.setAttribute('aria-hidden','false');
+  document.body.classList.add('gallery-open');
+  document.getElementById('deploymentGalleryClose').focus();
+}
+
+function closeDocumentationGallery(){
+  deploymentGalleryModal.classList.remove('open');
+  deploymentGalleryModal.setAttribute('aria-hidden','true');
+  document.body.classList.remove('gallery-open');
+}
+
+function moveDocumentationGallery(step){
+  const images=documentationGalleries[activeDocumentationGallery].images;
+  activeDocumentationImage=(activeDocumentationImage+step+images.length)%images.length;
+  renderDocumentationGallery();
+}
+
+document.querySelectorAll('[data-gallery]').forEach(button=>{
+  button.addEventListener('click',()=>openDocumentationGallery(button.dataset.gallery));
+});
+document.getElementById('deploymentGalleryClose').addEventListener('click',closeDocumentationGallery);
+document.getElementById('deploymentGalleryPrevious').addEventListener('click',()=>moveDocumentationGallery(-1));
+document.getElementById('deploymentGalleryNext').addEventListener('click',()=>moveDocumentationGallery(1));
+deploymentGalleryModal.addEventListener('click',event=>{
+  if(event.target===deploymentGalleryModal) closeDocumentationGallery();
+});
+deploymentGalleryStage.addEventListener('touchstart',event=>{
+  galleryTouchStartX=event.changedTouches[0].clientX;
+},{passive:true});
+deploymentGalleryStage.addEventListener('touchend',event=>{
+  const distance=event.changedTouches[0].clientX-galleryTouchStartX;
+  if(Math.abs(distance)>55) moveDocumentationGallery(distance>0?-1:1);
+},{passive:true});
+
+document.addEventListener('keydown',event=>{
+  if(!deploymentGalleryModal.classList.contains('open')) return;
+  if(event.key==='ArrowLeft') moveDocumentationGallery(-1);
+  if(event.key==='ArrowRight') moveDocumentationGallery(1);
+  if(event.key==='Escape') closeDocumentationGallery();
+});
+
+const documentationProjectVideo=document.getElementById('documentationProjectVideo');
+const documentationProjectVideoSource=document.getElementById('documentationProjectVideoSource');
+const documentationVideoCaption=document.getElementById('documentationVideoCaption');
+document.querySelectorAll('.documentation-video-tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.documentation-video-tab').forEach(button=>{
+      const isActive=button===tab;
+      button.classList.toggle('active',isActive);
+      button.setAttribute('aria-selected',String(isActive));
+    });
+    documentationProjectVideo.pause();
+    documentationProjectVideoSource.src=tab.dataset.videoSrc;
+    documentationProjectVideo.poster=tab.dataset.videoPoster;
+    documentationProjectVideo.load();
+    documentationVideoCaption.textContent=tab.dataset.videoLabel+' video';
+  });
+});
 
 let feedback=readLocal('hiraya_feedback_v4',[]);
 if(!Array.isArray(feedback)) feedback=[];

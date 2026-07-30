@@ -67,3 +67,12 @@ V10 CHANGES
 
 V11 CHANGES
 - Added the uploaded group photo to Documentation as 2nd Deployment.
+
+
+DOCUMENTATION GALLERY UPDATE
+- Removed the two lower Documentation placeholders.
+- The 1st and 2nd Deployment cover photos are now clickable.
+- Each opens a separate full-screen gallery with arrows, thumbnails, keyboard controls, and phone swipe support.
+- Added a Group-Made Deployment Video player below the galleries.
+- The single player switches between the existing 1st and 2nd deployment videos.
+- Added six compressed gallery stills extracted from the existing deployment videos.
