@@ -1350,7 +1350,7 @@ body.gallery-open{overflow:hidden}
           <strong>2nd Deployment</strong>
           <small>View photo gallery <span aria-hidden="true">→</span></small>
         </span>
-        <span class="gallery-photo-count">5 photos</span>
+        <span class="gallery-photo-count">15 photos</span>
       </button>
     </div>
 
@@ -1620,11 +1620,6 @@ const documentationGalleries={
     title:'2nd Deployment',
     images:[
       {src:'documentation-second-deployment.jpg',alt:'Team HIRAYA and participants posing with certificates and the HIRAYA Board during the second deployment.',caption:'Team HIRAYA and participants during the second deployment and turnover.'},
-      {src:'second-deployment-poster.jpg',alt:'Participants during a second deployment activity.',caption:'Participants taking part in the second deployment activities.'},
-      {src:'gallery-second-01.jpg',alt:'Students and facilitators during the second deployment.',caption:'A candid moment during the second deployment.'},
-      {src:'gallery-second-02.jpg',alt:'Students participating during the second deployment.',caption:'Students engaging with Team HIRAYA during the program.'},
-      {src:'gallery-second-03.jpg',alt:'Participants during the second deployment session.',caption:'Participants and facilitators continuing the activities.'}
-
       {src:'gallery-second-04.jpg',alt:'Participants gathered during a second deployment discussion.',caption:'Participants listening and engaging during the second deployment activities.'},
       {src:'gallery-second-05.jpg',alt:'Participants and facilitators seated around the HIRAYA Board during the second deployment.',caption:'The group interacting around the HIRAYA Board during the session.'},
       {src:'gallery-second-06.jpg',alt:'Facilitators holding activity props during the second deployment.',caption:'Facilitators preparing playful materials for the activities.'},
@@ -1638,7 +1633,7 @@ const documentationGalleries={
       {src:'gallery-second-14.jpg',alt:'Facilitators and participants standing around a discussion table during the second deployment.',caption:'A discussion moment between facilitators and participants.'},
       {src:'gallery-second-15.jpg',alt:'A close-up of the activity box and materials used during the second deployment.',caption:'The activity box and colorful materials prepared for the session.'},
       {src:'gallery-second-16.jpg',alt:'Participants seated together during the second deployment.',caption:'Participants enjoying the activity and each other’s company.'},
-      {src:'gallery-second-17.jpg',alt:'Participants in conversation during the second deployment.',caption:'A candid interaction captured during the second deployment.'},
+      {src:'gallery-second-17.jpg',alt:'Participants in conversation during the second deployment.',caption:'A candid interaction captured during the second deployment.'}
     ]
   }
 };
@@ -1659,7 +1654,7 @@ function renderDocumentationGallery(){
   const item=gallery.images[activeDocumentationImage];
   deploymentGalleryTitle.textContent=gallery.title;
   deploymentGalleryCounter.textContent=(activeDocumentationImage+1)+' / '+gallery.images.length;
-  deploymentGalleryImage.src=item.src;
+  deploymentGalleryImage.src=item.src+'?v=20260731-2';
   deploymentGalleryImage.alt=item.alt;
   deploymentGalleryCaption.textContent=item.caption;
 
@@ -1670,7 +1665,7 @@ function renderDocumentationGallery(){
     button.className='deployment-gallery-thumbnail'+(index===activeDocumentationImage?' active':'');
     button.setAttribute('aria-label','Open photo '+(index+1));
     const thumbnail=document.createElement('img');
-    thumbnail.src=image.src;
+    thumbnail.src=image.src+'?v=20260731-2';
     thumbnail.alt='';
     thumbnail.loading='lazy';
     button.appendChild(thumbnail);
