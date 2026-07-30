@@ -3,10 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <base href="./">
 <meta name="theme-color" content="#fff7e9">
 <meta name="description" content="HIRAYA Corner NSTP002 Interactive Accomplishment Report">
 <title>HIRAYA Corner | NSTP002 Accomplishment Report</title>
+<!-- HIRAYA BUILD: 2026-07-31-COMBINED-VIDEO-FINAL -->
 <style>
 :root{
   --cream:#fff7e9; --paper:#fffef9; --ink:#27342c; --muted:#68746c;
@@ -833,28 +837,6 @@ body{overflow-x:hidden} button,input,textarea,select{font:inherit} button{cursor
   font-family:Georgia,serif;
   font-size:clamp(1.45rem,3vw,2.15rem);
 }
-.documentation-video-tabs{
-  display:inline-flex;
-  gap:5px;
-  padding:5px;
-  border-radius:16px;
-  background:#eaf0ea;
-}
-.documentation-video-tab{
-  border:0;
-  border-radius:12px;
-  padding:9px 12px;
-  background:transparent;
-  color:#637068;
-  font-size:.72rem;
-  font-weight:900;
-  transition:.2s var(--ease);
-}
-.documentation-video-tab.active{
-  background:#fff;
-  color:var(--green);
-  box-shadow:var(--soft);
-}
 .documentation-video-frame{
   overflow:hidden;
   aspect-ratio:16/9;
@@ -1000,8 +982,6 @@ body.gallery-open{overflow:hidden}
   .deployment-gallery-covers{grid-template-columns:1fr}
   .gallery-cover-card,.gallery-cover-card img{min-height:285px}
   .documentation-video-heading{align-items:flex-start;flex-direction:column}
-  .documentation-video-tabs{width:100%;display:grid;grid-template-columns:1fr 1fr}
-  .documentation-video-tab{padding:10px 8px}
   .deployment-gallery-modal{padding:0}
   .deployment-gallery-dialog{width:100%;height:100dvh;max-height:none;border-radius:0;padding:13px;grid-template-rows:auto minmax(0,1fr) auto}
   .deployment-gallery-stage{grid-template-columns:1fr;gap:0}
@@ -1376,8 +1356,8 @@ body.gallery-open{overflow:hidden}
       </div>
 
       <div class="documentation-video-frame">
-        <video id="documentationProjectVideo" controls playsinline preload="metadata" poster="hiraya-deployment-summary-poster.jpg?v=2">
-          <source src="hiraya-deployment-summary.mp4?v=2" type="video/mp4">
+        <video id="documentationProjectVideo" controls playsinline preload="metadata" poster="hiraya-summary-final-20260731.jpg?v=1">
+          <source src="hiraya-summary-final-20260731.mp4?v=1" type="video/mp4">
           Your browser does not support the video.
         </video>
       </div>
@@ -1845,5 +1825,6 @@ document.querySelectorAll('video[poster^="./"]').forEach(video=>{
 });
 
 function toast(message){const t=document.getElementById('toast');t.textContent=message;t.classList.add('show');clearTimeout(window._toast);window._toast=setTimeout(()=>t.classList.remove('show'),2400);}
+console.info("HIRAYA build 2026-07-31 combined-video-final");
 </script>
 </body></html>
