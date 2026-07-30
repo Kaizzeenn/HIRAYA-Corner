@@ -1019,6 +1019,18 @@ body.gallery-open{overflow:hidden}
   .gallery-photo-count{right:16px;top:16px}
 }
 
+
+.documentation-video-summary{
+  max-width:720px;
+  margin:7px 0 0;
+  color:var(--muted);
+  font-size:.82rem;
+  line-height:1.55;
+}
+.combined-deployment-video .documentation-video-heading{
+  display:block;
+}
+
 </style>
 </head>
 <body>
@@ -1350,29 +1362,26 @@ body.gallery-open{overflow:hidden}
           <strong>2nd Deployment</strong>
           <small>View photo gallery <span aria-hidden="true">→</span></small>
         </span>
-        <span class="gallery-photo-count">15 photos</span>
+        <span class="gallery-photo-count">13 photos</span>
       </button>
     </div>
 
-    <article class="documentation-video-card">
+    <article class="documentation-video-card combined-deployment-video">
       <div class="documentation-video-heading">
         <div>
           <span class="documentation-video-kicker">Video Documentation</span>
-          <h3>Group-Made Deployment Video</h3>
-        </div>
-        <div class="documentation-video-tabs" role="tablist" aria-label="Choose deployment video">
-          <button class="documentation-video-tab active" type="button" data-video-src="first-deployment.mp4" data-video-poster="first-deployment-poster.jpg" data-video-label="1st Deployment" aria-selected="true">1st Deployment</button>
-          <button class="documentation-video-tab" type="button" data-video-src="second-deployment.mp4" data-video-poster="second-deployment-poster.jpg" data-video-label="2nd Deployment" aria-selected="false">2nd Deployment</button>
+          <h3>1st and 2nd Deployment Summary</h3>
+          <p class="documentation-video-summary">A group-made video highlighting the activities, experiences, and key moments from both community deployments.</p>
         </div>
       </div>
 
       <div class="documentation-video-frame">
-        <video id="documentationProjectVideo" controls playsinline preload="metadata" poster="first-deployment-poster.jpg">
-          <source id="documentationProjectVideoSource" src="first-deployment.mp4" type="video/mp4">
+        <video id="documentationProjectVideo" controls playsinline preload="metadata" poster="hiraya-deployment-summary-poster.jpg?v=2">
+          <source src="hiraya-deployment-summary.mp4?v=2" type="video/mp4">
           Your browser does not support the video.
         </video>
       </div>
-      <div class="documentation-video-caption" id="documentationVideoCaption">1st Deployment video</div>
+      <div class="documentation-video-caption">Summary of the 1st and 2nd Deployments</div>
     </article>
   </article>
 </section>
@@ -1620,20 +1629,18 @@ const documentationGalleries={
     title:'2nd Deployment',
     images:[
       {src:'documentation-second-deployment.jpg',alt:'Team HIRAYA and participants posing with certificates and the HIRAYA Board during the second deployment.',caption:'Team HIRAYA and participants during the second deployment and turnover.'},
-      {src:'gallery-second-04.jpg',alt:'Participants gathered during a second deployment discussion.',caption:'Participants listening and engaging during the second deployment activities.'},
-      {src:'gallery-second-05.jpg',alt:'Participants and facilitators seated around the HIRAYA Board during the second deployment.',caption:'The group interacting around the HIRAYA Board during the session.'},
-      {src:'gallery-second-06.jpg',alt:'Facilitators holding activity props during the second deployment.',caption:'Facilitators preparing playful materials for the activities.'},
-      {src:'gallery-second-07.jpg',alt:'Participants writing and decorating materials during the second deployment.',caption:'Participants creating and decorating activity outputs together.'},
-      {src:'gallery-second-08.jpg',alt:'Participants seated together during a second deployment activity.',caption:'A focused moment as participants completed the activity.'},
-      {src:'gallery-second-09.jpg',alt:'Participants working closely around art materials during the second deployment.',caption:'Students collaborating while using markers, notes, and activity materials.'},
-      {src:'gallery-second-10.jpg',alt:'Participants sharing a table activity during the second deployment.',caption:'Participants concentrating on the group task.'},
-      {src:'gallery-second-11.jpg',alt:'Participants smiling and interacting during the second deployment.',caption:'A warm and lively exchange during the activity.'},
-      {src:'gallery-second-12.jpg',alt:'A participant speaking while others listen during the second deployment.',caption:'A participant sharing ideas while the group listens attentively.'},
-      {src:'gallery-second-13.jpg',alt:'A small group posing together during the second deployment.',caption:'A cheerful photo of facilitators and participants during the program.'},
-      {src:'gallery-second-14.jpg',alt:'Facilitators and participants standing around a discussion table during the second deployment.',caption:'A discussion moment between facilitators and participants.'},
-      {src:'gallery-second-15.jpg',alt:'A close-up of the activity box and materials used during the second deployment.',caption:'The activity box and colorful materials prepared for the session.'},
-      {src:'gallery-second-16.jpg',alt:'Participants seated together during the second deployment.',caption:'Participants enjoying the activity and each other’s company.'},
-      {src:'gallery-second-17.jpg',alt:'Participants in conversation during the second deployment.',caption:'A candid interaction captured during the second deployment.'}
+      {src:'gallery-second-06.jpg?v=2',alt:'Facilitators holding activity props during the second deployment.',caption:'Facilitators preparing playful materials for the activities.'},
+      {src:'gallery-second-07.jpg?v=2',alt:'Participants writing and decorating materials during the second deployment.',caption:'Participants creating and decorating activity outputs together.'},
+      {src:'gallery-second-08.jpg?v=2',alt:'Participants seated together during a second deployment activity.',caption:'A focused moment as participants completed the activity.'},
+      {src:'gallery-second-09.jpg?v=2',alt:'Participants working closely around art materials during the second deployment.',caption:'Students collaborating while using markers, notes, and activity materials.'},
+      {src:'gallery-second-10.jpg?v=2',alt:'Participants sharing a table activity during the second deployment.',caption:'Participants concentrating on the group task.'},
+      {src:'gallery-second-11.jpg?v=2',alt:'Participants smiling and interacting during the second deployment.',caption:'A warm and lively exchange during the activity.'},
+      {src:'gallery-second-12.jpg?v=2',alt:'A participant speaking while others listen during the second deployment.',caption:'A participant sharing ideas while the group listens attentively.'},
+      {src:'gallery-second-13.jpg?v=2',alt:'A small group posing together during the second deployment.',caption:'A cheerful photo of facilitators and participants during the program.'},
+      {src:'gallery-second-14.jpg?v=2',alt:'Facilitators and participants standing around a discussion table during the second deployment.',caption:'A discussion moment between facilitators and participants.'},
+      {src:'gallery-second-15.jpg?v=2',alt:'A close-up of the activity box and materials used during the second deployment.',caption:'The activity box and colorful materials prepared for the session.'},
+      {src:'gallery-second-16.jpg?v=2',alt:'Participants seated together during the second deployment.',caption:'Participants enjoying the activity and each other’s company.'},
+      {src:'gallery-second-17.jpg?v=2',alt:'Participants in conversation during the second deployment.',caption:'A candid interaction captured during the second deployment.'}
     ]
   }
 };
@@ -1726,23 +1733,6 @@ document.addEventListener('keydown',event=>{
   if(event.key==='Escape') closeDocumentationGallery();
 });
 
-const documentationProjectVideo=document.getElementById('documentationProjectVideo');
-const documentationProjectVideoSource=document.getElementById('documentationProjectVideoSource');
-const documentationVideoCaption=document.getElementById('documentationVideoCaption');
-document.querySelectorAll('.documentation-video-tab').forEach(tab=>{
-  tab.addEventListener('click',()=>{
-    document.querySelectorAll('.documentation-video-tab').forEach(button=>{
-      const isActive=button===tab;
-      button.classList.toggle('active',isActive);
-      button.setAttribute('aria-selected',String(isActive));
-    });
-    documentationProjectVideo.pause();
-    documentationProjectVideoSource.src=tab.dataset.videoSrc;
-    documentationProjectVideo.poster=tab.dataset.videoPoster;
-    documentationProjectVideo.load();
-    documentationVideoCaption.textContent=tab.dataset.videoLabel+' video';
-  });
-});
 
 let feedback=readLocal('hiraya_feedback_v4',[]);
 if(!Array.isArray(feedback)) feedback=[];
