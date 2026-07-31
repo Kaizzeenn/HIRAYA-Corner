@@ -12,7 +12,7 @@
 <link rel="icon" type="image/png" href="hiraya-logo.png?v=20260731-logo-second-video">
 <link rel="apple-touch-icon" href="hiraya-logo.png?v=20260731-logo-second-video">
 <title>HIRAYA Corner | NSTP002 Accomplishment Report</title>
-<!-- HIRAYA BUILD: 2026-07-31-COMBINED-VIDEO-FINAL -->
+<!-- HIRAYA BUILD: 2026-08-01-REFLECTION-CLICK-FIX -->
 <style>
 :root{
   --cream:#fff7e9; --paper:#fffef9; --ink:#27342c; --muted:#68746c;
@@ -1086,6 +1086,20 @@ body.gallery-open{overflow:hidden}
   }
 }
 
+
+/* ===== Reflection click rendering fix ===== */
+#reflectionModal.open .reflection-copy{
+  display:block;
+  visibility:visible;
+  opacity:1;
+}
+#reflectionModal .modal-card{
+  scroll-behavior:auto;
+}
+.member{
+  touch-action:manipulation;
+}
+
 </style>
 </head>
 <body>
@@ -1327,14 +1341,14 @@ body.gallery-open{overflow:hidden}
     <h2 class="title">Meet Team HIRAYA.</h2>
 
     <div class="team-grid">
-      <button class="member" type="button" style="--tone:var(--yellow)" data-name="Aivan Mark Aguilar" data-degree="Bachelor of Science in Information Systems">
+      <button type="button" class="member" type="button" style="--tone:var(--yellow)" data-name="Aivan Mark Aguilar" data-degree="Bachelor of Science in Information Systems">
         <div class="portrait"><span>👤</span></div>
         <h3>Aivan Mark Aguilar</h3>
         <p>1st Year · BS Information Systems</p>
         <small>Open reflection →</small>
       </button>
 
-      <button class="member" type="button" style="--tone:var(--blue)" data-name="Gabriel Andre Cuevas" data-degree="Bachelor of Science in Cybersecurity">
+      <button type="button" class="member" type="button" style="--tone:var(--blue)" data-name="Gabriel Andre Cuevas" data-degree="Bachelor of Science in Cybersecurity">
         <div class="portrait">
           <img class="crop-embedded-border" src="gab.jpg" alt="Gabriel Andre Cuevas" loading="lazy">
         </div>
@@ -1343,7 +1357,7 @@ body.gallery-open{overflow:hidden}
         <small>Open reflection →</small>
       </button>
 
-      <button class="member" type="button" style="--tone:var(--peach)" data-name="Ethan Jarren Diego" data-degree="Bachelor of Science in Information Systems">
+      <button type="button" class="member" type="button" style="--tone:var(--peach)" data-name="Ethan Jarren Diego" data-degree="Bachelor of Science in Information Systems">
         <div class="portrait">
           <img class="crop-embedded-border" src="ej.jpg" alt="Ethan Jarren Diego" loading="lazy">
         </div>
@@ -1352,7 +1366,7 @@ body.gallery-open{overflow:hidden}
         <small>Open reflection →</small>
       </button>
 
-      <button class="member" type="button" style="--tone:var(--green2)" data-name="Shawn Ysmael Grefaldeo" data-degree="Bachelor of Science in Information Systems">
+      <button type="button" class="member" type="button" style="--tone:var(--green2)" data-name="Shawn Ysmael Grefaldeo" data-degree="Bachelor of Science in Information Systems">
         <div class="portrait">
           <img class="crop-embedded-border" src="shawn.jpg" alt="Shawn Ysmael Grefaldeo" loading="lazy">
         </div>
@@ -1361,7 +1375,7 @@ body.gallery-open{overflow:hidden}
         <small>Open reflection →</small>
       </button>
 
-      <button class="member" type="button" style="--tone:var(--purple)" data-name="Marie Agnes Javellana" data-degree="Bachelor of Arts in Multimedia Arts">
+      <button type="button" class="member" type="button" style="--tone:var(--purple)" data-name="Marie Agnes Javellana" data-degree="Bachelor of Arts in Multimedia Arts">
         <div class="portrait">
           <img class="crop-embedded-border" src="maggie.jpg" alt="Maggie Agnes Javellana" loading="lazy">
         </div>
@@ -1370,7 +1384,7 @@ body.gallery-open{overflow:hidden}
         <small>Open reflection →</small>
       </button>
 
-      <button class="member" type="button" style="--tone:var(--pink)" data-name="Ethan Austin Manalili" data-degree="Bachelor of Science in Information Systems">
+      <button type="button" class="member" type="button" style="--tone:var(--pink)" data-name="Ethan Austin Manalili" data-degree="Bachelor of Science in Information Systems">
         <div class="portrait">
           <img class="crop-embedded-border" src="manalili.png" alt="Ethan Austin Manalili" loading="lazy">
         </div>
@@ -1379,7 +1393,7 @@ body.gallery-open{overflow:hidden}
         <small>Open reflection →</small>
       </button>
 
-      <button class="member" type="button" style="--tone:var(--yellow)" data-name="Aaron Matthew Natividad" data-degree="Bachelor of Science in Information Systems">
+      <button type="button" class="member" type="button" style="--tone:var(--yellow)" data-name="Aaron Matthew Natividad" data-degree="Bachelor of Science in Information Systems">
         <div class="portrait">
           <img src="aaron.jpg" alt="Aaron Matthew Natividad" loading="lazy">
         </div>
@@ -1388,7 +1402,7 @@ body.gallery-open{overflow:hidden}
         <small>Open reflection →</small>
       </button>
 
-      <button class="member" type="button" style="--tone:var(--green2)" data-name="Marjorie Ann Yulo" data-degree="Bachelor of Science in Information Systems">
+      <button type="button" class="member" type="button" style="--tone:var(--green2)" data-name="Marjorie Ann Yulo" data-degree="Bachelor of Science in Information Systems">
         <div class="portrait">
           <img src="marjorie.jpg" alt="Marjorie Ann Yulo" loading="lazy">
         </div>
@@ -1507,7 +1521,7 @@ body.gallery-open{overflow:hidden}
   </main>
 </div>
 
-<div class="modal" id="reflectionModal"><div class="modal-card reflection-modal-card"><button class="close" data-close>✕</button><span class="eyebrow">Individual reflection paper</span><h2 id="reflectionName">Team Member</h2><p id="reflectionDegree"></p><div class="reflection-copy" id="reflectionBody"><p>Select a member to read their NSTP personal reflection.</p></div></div></div>
+<div class="modal" id="reflectionModal" aria-hidden="true"><div class="modal-card reflection-modal-card"><button class="close" data-close>✕</button><span class="eyebrow">Individual reflection paper</span><h2 id="reflectionName">Team Member</h2><p id="reflectionDegree"></p><div class="reflection-copy" id="reflectionBody"><p>Select a member to read their NSTP personal reflection.</p></div></div></div>
 
 
 
@@ -1641,7 +1655,10 @@ document.querySelectorAll('.mood').forEach(btn=>btn.addEventListener('click',()=
 document.getElementById('affirmBtn').addEventListener('click',()=>{const list=Object.values(affirmations);toast(list[Math.floor(Math.random()*list.length)]);});
 
 const reflectionModal=document.getElementById('reflectionModal');
+const reflectionModalCard=reflectionModal.querySelector('.modal-card');
 const reflectionBody=document.getElementById('reflectionBody');
+const reflectionName=document.getElementById('reflectionName');
+const reflectionDegree=document.getElementById('reflectionDegree');
 
 const memberReflections={
   'Gabriel Andre Cuevas':`My NSTP experience was much better than I initially expected. I had a lot of fun and learned about the community in a different way. I was very nervous when I first met the students at Konkokyo, especially since they were already in high school. But my expectations were shattered when we started to present HIRAYA Corner. The mood became lighter, and we were able to bond with the students.`,
@@ -1651,25 +1668,46 @@ const memberReflections={
   'Ethan Austin Manalili':`My NSTP experience, though short, was very meaningful because it allowed me to help and create memories for the students in Konkokyo. In our deployment, I was very happy to know that the students were very participative and also very creative. Though some were shy, I knew that at least they were trying their best. It made me realize that my effort, even if it was small, when done with sincerity and togetherness, could make a big difference.`
 };
 
-document.querySelectorAll('.member').forEach(member=>{
-  member.addEventListener('click',event=>{
-    if(event.target.closest('.upload-label')) return;
+function openMemberReflection(member){
+  const memberName=member.dataset.name||'Team Member';
+  const degree=member.dataset.degree||'';
+  const reflection=memberReflections[memberName];
 
-    const memberName=member.dataset.name;
-    const reflection=memberReflections[memberName];
+  // Update everything while the modal is still closed.
+  reflectionName.textContent=memberName;
+  reflectionDegree.textContent=degree?'1st Year · '+degree:'';
 
-    document.getElementById('reflectionName').textContent=memberName;
-    document.getElementById('reflectionDegree').textContent='1st Year · '+member.dataset.degree;
+  const paragraph=document.createElement('p');
+  paragraph.textContent=reflection||
+    'This member’s NSTP personal reflection has not been added yet.';
+  reflectionBody.replaceChildren(paragraph);
 
-    reflectionBody.classList.toggle('has-reflection',Boolean(reflection));
-    reflectionBody.classList.toggle('is-pending',!reflection);
-    reflectionBody.querySelector('p').textContent=reflection||
-      'This member’s NSTP personal reflection has not been added yet.';
+  reflectionBody.classList.toggle('has-reflection',Boolean(reflection));
+  reflectionBody.classList.toggle('is-pending',!reflection);
 
+  // Always open at the beginning of the reflection.
+  reflectionModal.scrollTop=0;
+  reflectionModalCard.scrollTop=0;
+  reflectionModal.setAttribute('aria-hidden','false');
+
+  // Open only after the updated content has been placed in the DOM.
+  requestAnimationFrame(()=>{
     reflectionModal.classList.add('open');
+    reflectionModalCard.scrollTop=0;
+    reflectionModal.querySelector('[data-close]')?.focus({preventScroll:true});
   });
+}
+
+const teamGrid=document.querySelector('.team-grid');
+teamGrid?.addEventListener('click',event=>{
+  const member=event.target.closest('.member');
+  if(!member||!teamGrid.contains(member)) return;
+
+  event.preventDefault();
+  event.stopPropagation();
+  openMemberReflection(member);
 });
-document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>b.closest('.modal').classList.remove('open')));document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open')}));document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal,.lightbox').forEach(m=>m.classList.remove('open'));}});
+document.querySelectorAll('[data-close]').forEach(button=>button.addEventListener('click',()=>{const modal=button.closest('.modal');modal.classList.remove('open');modal.setAttribute('aria-hidden','true');}));document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open')}));document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal,.lightbox').forEach(m=>m.classList.remove('open'));}});
 const board=document.getElementById('boardImage');
 const mapButton=document.getElementById('mapImageButton');
 const lightbox=document.getElementById('lightbox');
