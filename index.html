@@ -1044,6 +1044,48 @@ body.gallery-open{overflow:hidden}
 }
 @media print{.view::after{display:none}}
 
+
+/* ===== Individual NSTP reflections ===== */
+.reflection-modal-card{
+  width:min(760px,100%);
+}
+.reflection-copy{
+  margin-top:17px;
+  padding:21px;
+  border:1px solid var(--line);
+  border-radius:21px;
+  background:
+    radial-gradient(circle at 95% 5%,rgba(246,212,103,.22),transparent 25%),
+    linear-gradient(145deg,#fffef9,#f5f9f4);
+  box-shadow:var(--soft);
+}
+.reflection-copy p{
+  margin:0;
+  color:var(--muted);
+  font-size:.9rem;
+  line-height:1.82;
+  white-space:pre-line;
+}
+.reflection-copy.has-reflection p{
+  color:#4f5d54;
+}
+.reflection-copy.is-pending{
+  border-style:dashed;
+}
+@media(max-width:760px){
+  .reflection-modal-card{
+    max-height:90vh;
+    padding:23px 19px;
+  }
+  .reflection-copy{
+    padding:17px;
+  }
+  .reflection-copy p{
+    font-size:.84rem;
+    line-height:1.72;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1465,7 +1507,7 @@ body.gallery-open{overflow:hidden}
   </main>
 </div>
 
-<div class="modal" id="reflectionModal"><div class="modal-card"><button class="close" data-close>✕</button><span class="eyebrow">Individual reflection paper</span><h2 id="reflectionName">Team Member</h2><p id="reflectionDegree"></p><div class="placeholder">Insert the member's final reflection here. Keep the reflection personal and based on the prescribed guide questions.</div></div></div>
+<div class="modal" id="reflectionModal"><div class="modal-card reflection-modal-card"><button class="close" data-close>✕</button><span class="eyebrow">Individual reflection paper</span><h2 id="reflectionName">Team Member</h2><p id="reflectionDegree"></p><div class="reflection-copy" id="reflectionBody"><p>Select a member to read their NSTP personal reflection.</p></div></div></div>
 
 
 
@@ -1598,7 +1640,35 @@ const affirmations={happy:'Keep this joyful moment close and share a little warm
 document.querySelectorAll('.mood').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.mood').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');document.getElementById('affirmation').textContent=affirmations[btn.dataset.mood];}));
 document.getElementById('affirmBtn').addEventListener('click',()=>{const list=Object.values(affirmations);toast(list[Math.floor(Math.random()*list.length)]);});
 
-const reflectionModal=document.getElementById('reflectionModal');document.querySelectorAll('.member').forEach(m=>m.addEventListener('click',e=>{if(e.target.closest('.upload-label')) return;document.getElementById('reflectionName').textContent=m.dataset.name;document.getElementById('reflectionDegree').textContent='1st Year · '+m.dataset.degree;reflectionModal.classList.add('open');}));
+const reflectionModal=document.getElementById('reflectionModal');
+const reflectionBody=document.getElementById('reflectionBody');
+
+const memberReflections={
+  'Gabriel Andre Cuevas':`My NSTP experience was much better than I initially expected. I had a lot of fun and learned about the community in a different way. I was very nervous when I first met the students at Konkokyo, especially since they were already in high school. But my expectations were shattered when we started to present HIRAYA Corner. The mood became lighter, and we were able to bond with the students.`,
+
+  'Ethan Jarren Diego':`My NSTP experience was very meaningful. During our deployment, I was a bit nervous at first, but everything became more comfortable once we started interacting with the kids. Teaching them about emotions and the importance of opening up made me realize how valuable it is to express our feelings and listen to others with empathy. Seeing the children participate and share their thoughts made the experience even more rewarding. I will always remember this deployment as something that helped me grow while making a small positive impact on others.`,
+
+  'Ethan Austin Manalili':`My NSTP experience, though short, was very meaningful because it allowed me to help and create memories for the students in Konkokyo. In our deployment, I was very happy to know that the students were very participative and also very creative. Though some were shy, I knew that at least they were trying their best. It made me realize that my effort, even if it was small, when done with sincerity and togetherness, could make a big difference.`
+};
+
+document.querySelectorAll('.member').forEach(member=>{
+  member.addEventListener('click',event=>{
+    if(event.target.closest('.upload-label')) return;
+
+    const memberName=member.dataset.name;
+    const reflection=memberReflections[memberName];
+
+    document.getElementById('reflectionName').textContent=memberName;
+    document.getElementById('reflectionDegree').textContent='1st Year · '+member.dataset.degree;
+
+    reflectionBody.classList.toggle('has-reflection',Boolean(reflection));
+    reflectionBody.classList.toggle('is-pending',!reflection);
+    reflectionBody.querySelector('p').textContent=reflection||
+      'This member’s NSTP personal reflection has not been added yet.';
+
+    reflectionModal.classList.add('open');
+  });
+});
 document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>b.closest('.modal').classList.remove('open')));document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open')}));document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal,.lightbox').forEach(m=>m.classList.remove('open'));}});
 const board=document.getElementById('boardImage');
 const mapButton=document.getElementById('mapImageButton');
