@@ -12,7 +12,7 @@
 <link rel="icon" type="image/png" href="hiraya-logo.png?v=20260803-reflections-final">
 <link rel="apple-touch-icon" href="hiraya-logo.png?v=20260803-reflections-final">
 <title>HIRAYA Corner | NSTP002 Accomplishment Report</title>
-<!-- HIRAYA BUILD: 2026-08-03-REFLECTIONS-FINAL-DIRECT-CLICK -->
+<!-- HIRAYA BUILD: 2026-08-03-AIVAN-IMMEDIATE-LOAD -->
 <style>
 :root{
   --cream:#fff7e9; --paper:#fffef9; --ink:#27342c; --muted:#68746c;
@@ -1110,6 +1110,20 @@ body.reflection-open{overflow:hidden}
 #reflectionModal .reflection-modal-card{width:min(780px,100%)}
 .member[aria-haspopup="dialog"]{touch-action:manipulation}
 
+/* ===== Aivan immediate-load safeguard ===== */
+.member[data-static-reflection="aivan"] .portrait img{
+  display:block;
+  visibility:visible;
+  opacity:1;
+}
+#aivanReflectionModal.open .reflection-copy{
+  display:block;
+  visibility:visible;
+  opacity:1;
+}
+#aivanReflectionModal .reflection-copy p + p{
+  margin-top:15px;
+}
 </style>
 </head>
 <body>
@@ -1351,9 +1365,9 @@ body.reflection-open{overflow:hidden}
     <h2 class="title">Meet Team HIRAYA.</h2>
 
     <div class="team-grid">
-      <button type="button" class="member" style="--tone:var(--yellow)" data-name="Aivan Mark Aguilar" data-degree="Bachelor of Science in Information Systems" aria-haspopup="dialog">
+      <button type="button" class="member" style="--tone:var(--yellow)" data-name="Aivan Mark Aguilar" data-degree="Bachelor of Science in Information Systems" data-static-reflection="aivan" aria-haspopup="dialog" aria-controls="aivanReflectionModal" onclick="openAivanReflection(event)">
         <div class="portrait">
-          <img src="aivan.jpg" alt="Aivan Mark Aguilar profile placeholder with initials AM" loading="lazy">
+          <img src="aivan.jpg?v=20260803-aivan-immediate" alt="Aivan Mark Aguilar profile photo" loading="eager" decoding="sync" fetchpriority="high">
         </div>
         <h3>Aivan Mark Aguilar</h3>
         <p>1st Year · BS Information Systems</p>
@@ -1535,8 +1549,18 @@ body.reflection-open{overflow:hidden}
 
 <div class="modal" id="reflectionModal" aria-hidden="true"><div class="modal-card reflection-modal-card"><button class="close" data-close>✕</button><span class="eyebrow">Individual reflection paper</span><h2 id="reflectionName">Team Member</h2><p id="reflectionDegree"></p><div class="reflection-copy" id="reflectionBody"><p>Select a member to read their NSTP personal reflection.</p></div></div></div>
 
-
-
+<div class="modal" id="aivanReflectionModal" aria-hidden="true">
+  <div class="modal-card reflection-modal-card">
+    <button class="close" type="button" data-aivan-close aria-label="Close Aivan reflection">✕</button>
+    <span class="eyebrow">Individual reflection paper</span>
+    <h2>Aivan Mark Aguilar</h2>
+    <p>1st Year · Bachelor of Science in Information Systems</p>
+    <div class="reflection-copy has-reflection">
+      <p>My experience in NSTP will always be memorable for me, because it provided me the opportunity to interact with other people and to learn from them. Being in the field during our deployment in Konkokyo, I was glad to be with the students who were eagerly joining the activities. They looked shy at first, but being able to witness them join in and enjoy themselves made our efforts all worthwhile.</p>
+      <p>There is one thing that I highly value, which is my leader, assistant leader, and the members of our group. All of them were very respectful of all the concepts and suggestions that I have contributed during our planning of our activities and this made me feel like I was part of them and made me gain confidence in contributing more. Due to this activity, I came to learn the significance of working together and what can be accomplished if people work with one another and support each other. I learned the importance of being more patient in dealing with children since they have varying personalities and ways to express themselves. In retrospect, I learned that even the simplest act of kindness, effort, and cooperation can make a difference in a day of a person.</p>
+    </div>
+  </div>
+</div>
 
 <div class="modal" id="feedbackFormModal">
   <div class="modal-card compact-modal">
@@ -1725,6 +1749,7 @@ function closeMemberReflection(){
 
 // Attach a direct click handler to every profile card. No delayed repaint and no delegated event.
 document.querySelectorAll('#team .member').forEach(member=>{
+  if(member.dataset.staticReflection==='aivan') return;
   member.addEventListener('click',event=>{
     event.preventDefault();
     openMemberReflection(member);
@@ -1740,6 +1765,41 @@ reflectionModal.addEventListener('click',event=>{
   if(event.target===reflectionModal) closeMemberReflection();
 });
 
+const aivanReflectionModal=document.getElementById('aivanReflectionModal');
+
+function openAivanReflection(event){
+  event?.preventDefault();
+  event?.stopPropagation();
+  const card=aivanReflectionModal.querySelector('.modal-card');
+  card.scrollTop=0;
+  aivanReflectionModal.scrollTop=0;
+  aivanReflectionModal.setAttribute('aria-hidden','false');
+  aivanReflectionModal.classList.add('open');
+  document.body.classList.add('reflection-open');
+  requestAnimationFrame(()=>{
+    card.scrollTop=0;
+    aivanReflectionModal.querySelector('[data-aivan-close]')?.focus({preventScroll:true});
+  });
+}
+
+function closeAivanReflection(){
+  aivanReflectionModal.classList.remove('open');
+  aivanReflectionModal.setAttribute('aria-hidden','true');
+  document.body.classList.remove('reflection-open');
+}
+
+window.openAivanReflection=openAivanReflection;
+aivanReflectionModal.querySelector('[data-aivan-close]')?.addEventListener('click',event=>{
+  event.preventDefault();
+  event.stopPropagation();
+  closeAivanReflection();
+});
+aivanReflectionModal.addEventListener('click',event=>{
+  if(event.target===aivanReflectionModal) closeAivanReflection();
+});
+document.addEventListener('keydown',event=>{
+  if(event.key==='Escape'&&aivanReflectionModal.classList.contains('open')) closeAivanReflection();
+});
 document.querySelectorAll('[data-close]').forEach(button=>button.addEventListener('click',()=>{const modal=button.closest('.modal');if(!modal||modal===reflectionModal)return;modal.classList.remove('open');modal.setAttribute('aria-hidden','true');}));document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open')}));document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal,.lightbox').forEach(m=>m.classList.remove('open'));}});
 const board=document.getElementById('boardImage');
 const mapButton=document.getElementById('mapImageButton');
