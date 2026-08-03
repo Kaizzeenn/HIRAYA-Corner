@@ -9,10 +9,10 @@
 <base href="./">
 <meta name="theme-color" content="#fff7e9">
 <meta name="description" content="HIRAYA Corner NSTP002 Interactive Accomplishment Report">
-<link rel="icon" type="image/png" href="hiraya-logo.png?v=20260731-logo-second-video">
-<link rel="apple-touch-icon" href="hiraya-logo.png?v=20260731-logo-second-video">
+<link rel="icon" type="image/png" href="hiraya-logo.png?v=20260803-reflections-final">
+<link rel="apple-touch-icon" href="hiraya-logo.png?v=20260803-reflections-final">
 <title>HIRAYA Corner | NSTP002 Accomplishment Report</title>
-<!-- HIRAYA BUILD: 2026-08-03-ADDITIONAL-REFLECTIONS -->
+<!-- HIRAYA BUILD: 2026-08-03-REFLECTIONS-FINAL-DIRECT-CLICK -->
 <style>
 :root{
   --cream:#fff7e9; --paper:#fffef9; --ink:#27342c; --muted:#68746c;
@@ -1030,7 +1030,7 @@ body.gallery-open{overflow:hidden}
 .view{position:relative}
 .view::after{
   content:"";position:absolute;right:18px;top:14px;width:74px;height:74px;
-  background:url("hiraya-logo.png?v=20260731-logo-second-video") center/contain no-repeat;
+  background:url("hiraya-logo.png?v=20260803-reflections-final") center/contain no-repeat;
   opacity:.11;pointer-events:none;z-index:0;filter:saturate(.92)
 }
 .view > *{position:relative;z-index:1}
@@ -1100,13 +1100,23 @@ body.gallery-open{overflow:hidden}
   touch-action:manipulation;
 }
 
+
+/* ===== Final reflection modal reliability fix ===== */
+body.reflection-open{overflow:hidden}
+#reflectionModal{z-index:9000}
+#reflectionModal.open{display:grid!important;visibility:visible!important;opacity:1!important}
+#reflectionModal .reflection-copy{display:grid!important;gap:13px;visibility:visible!important;opacity:1!important;min-height:90px}
+#reflectionModal .reflection-copy p{display:block!important;margin:0!important;white-space:normal!important}
+#reflectionModal .reflection-modal-card{width:min(780px,100%)}
+.member[aria-haspopup="dialog"]{touch-action:manipulation}
+
 </style>
 </head>
 <body>
 <div class="background"></div><div class="dots"></div>
 <div class="app">
   <aside class="sidebar">
-    <div class="brand"><div class="brand-logo-shell"><img class="brand-logo" src="hiraya-logo.png?v=20260731-logo-second-video" alt="HIRAYA logo"></div><div><strong>HIRAYA Corner</strong><small>NSTP002 Digital Portfolio</small></div></div>
+    <div class="brand"><div class="brand-logo-shell"><img class="brand-logo" src="hiraya-logo.png?v=20260803-reflections-final" alt="HIRAYA logo"></div><div><strong>HIRAYA Corner</strong><small>NSTP002 Digital Portfolio</small></div></div>
     <nav class="nav">
       <button class="nav-btn active" data-view="home"><span class="icon">⌂</span><span>Home</span></button>
       <button class="nav-btn" data-view="story"><span class="icon">✦</span><span>Story</span></button>
@@ -1125,7 +1135,7 @@ body.gallery-open{overflow:hidden}
 
   <main class="main">
     <div class="topbar">
-      <div class="topbar-identity"><img class="topbar-logo" src="hiraya-logo.png?v=20260731-logo-second-video" alt=""><div class="breadcrumb">HIRAYA Corner / <strong id="crumb">Home</strong></div></div>
+      <div class="topbar-identity"><img class="topbar-logo" src="hiraya-logo.png?v=20260803-reflections-final" alt=""><div class="breadcrumb">HIRAYA Corner / <strong id="crumb">Home</strong></div></div>
       <div class="top-actions"><span class="affirm-hint">Tap ✨ for a short reminder.</span><button class="icon-btn" id="affirmBtn" title="Show a short affirmation">✨</button><button class="icon-btn" onclick="window.print()" title="Print or save as PDF">⤓</button></div>
     </div>
 
@@ -1258,8 +1268,8 @@ body.gallery-open{overflow:hidden}
       <article class="deployment">
         <div class="video-wrap">
           <span class="video-badge">2nd Deployment</span>
-          <video controls playsinline preload="metadata" poster="second-deployment-final-20260731.jpg?v=20260731-logo-second-video">
-            <source src="second-deployment-final-20260731.mp4?v=20260731-logo-second-video" type="video/mp4">
+          <video controls playsinline preload="metadata" poster="second-deployment-final-20260731.jpg?v=20260803-reflections-final">
+            <source src="second-deployment-final-20260731.mp4?v=20260803-reflections-final" type="video/mp4">
             Your browser does not support the video.
           </video>
         </div>
@@ -1341,14 +1351,16 @@ body.gallery-open{overflow:hidden}
     <h2 class="title">Meet Team HIRAYA.</h2>
 
     <div class="team-grid">
-      <button type="button" class="member" type="button" style="--tone:var(--yellow)" data-name="Aivan Mark Aguilar" data-degree="Bachelor of Science in Information Systems">
-        <div class="portrait"><span>👤</span></div>
+      <button type="button" class="member" style="--tone:var(--yellow)" data-name="Aivan Mark Aguilar" data-degree="Bachelor of Science in Information Systems" aria-haspopup="dialog">
+        <div class="portrait">
+          <img src="aivan.jpg" alt="Aivan Mark Aguilar profile placeholder with initials AM" loading="lazy">
+        </div>
         <h3>Aivan Mark Aguilar</h3>
         <p>1st Year · BS Information Systems</p>
         <small>Open reflection →</small>
       </button>
 
-      <button type="button" class="member" type="button" style="--tone:var(--blue)" data-name="Gabriel Andre Cuevas" data-degree="Bachelor of Science in Cybersecurity">
+      <button type="button" class="member" style="--tone:var(--blue)" data-name="Gabriel Andre Cuevas" data-degree="Bachelor of Science in Cybersecurity" aria-haspopup="dialog">
         <div class="portrait">
           <img class="crop-embedded-border" src="gab.jpg" alt="Gabriel Andre Cuevas" loading="lazy">
         </div>
@@ -1357,7 +1369,7 @@ body.gallery-open{overflow:hidden}
         <small>Open reflection →</small>
       </button>
 
-      <button type="button" class="member" type="button" style="--tone:var(--peach)" data-name="Ethan Jarren Diego" data-degree="Bachelor of Science in Information Systems">
+      <button type="button" class="member" style="--tone:var(--peach)" data-name="Ethan Jarren Diego" data-degree="Bachelor of Science in Information Systems" aria-haspopup="dialog">
         <div class="portrait">
           <img class="crop-embedded-border" src="ej.jpg" alt="Ethan Jarren Diego" loading="lazy">
         </div>
@@ -1366,7 +1378,7 @@ body.gallery-open{overflow:hidden}
         <small>Open reflection →</small>
       </button>
 
-      <button type="button" class="member" type="button" style="--tone:var(--green2)" data-name="Shawn Ysmael Grefaldeo" data-degree="Bachelor of Science in Information Systems">
+      <button type="button" class="member" style="--tone:var(--green2)" data-name="Shawn Ysmael Grefaldeo" data-degree="Bachelor of Science in Information Systems" aria-haspopup="dialog">
         <div class="portrait">
           <img class="crop-embedded-border" src="shawn.jpg" alt="Shawn Ysmael Grefaldeo" loading="lazy">
         </div>
@@ -1375,7 +1387,7 @@ body.gallery-open{overflow:hidden}
         <small>Open reflection →</small>
       </button>
 
-      <button type="button" class="member" type="button" style="--tone:var(--purple)" data-name="Marie Agnes Javellana" data-degree="Bachelor of Arts in Multimedia Arts">
+      <button type="button" class="member" style="--tone:var(--purple)" data-name="Marie Agnes Javellana" data-degree="Bachelor of Arts in Multimedia Arts" aria-haspopup="dialog">
         <div class="portrait">
           <img class="crop-embedded-border" src="maggie.jpg" alt="Maggie Agnes Javellana" loading="lazy">
         </div>
@@ -1384,7 +1396,7 @@ body.gallery-open{overflow:hidden}
         <small>Open reflection →</small>
       </button>
 
-      <button type="button" class="member" type="button" style="--tone:var(--pink)" data-name="Ethan Austin Manalili" data-degree="Bachelor of Science in Information Systems">
+      <button type="button" class="member" style="--tone:var(--pink)" data-name="Ethan Austin Manalili" data-degree="Bachelor of Science in Information Systems" aria-haspopup="dialog">
         <div class="portrait">
           <img class="crop-embedded-border" src="manalili.png" alt="Ethan Austin Manalili" loading="lazy">
         </div>
@@ -1393,7 +1405,7 @@ body.gallery-open{overflow:hidden}
         <small>Open reflection →</small>
       </button>
 
-      <button type="button" class="member" type="button" style="--tone:var(--yellow)" data-name="Aaron Matthew Natividad" data-degree="Bachelor of Science in Information Systems">
+      <button type="button" class="member" style="--tone:var(--yellow)" data-name="Aaron Matthew Natividad" data-degree="Bachelor of Science in Information Systems" aria-haspopup="dialog">
         <div class="portrait">
           <img src="aaron.jpg" alt="Aaron Matthew Natividad" loading="lazy">
         </div>
@@ -1402,7 +1414,7 @@ body.gallery-open{overflow:hidden}
         <small>Open reflection →</small>
       </button>
 
-      <button type="button" class="member" type="button" style="--tone:var(--green2)" data-name="Marjorie Ann Yulo" data-degree="Bachelor of Science in Information Systems">
+      <button type="button" class="member" style="--tone:var(--green2)" data-name="Marjorie Ann Yulo" data-degree="Bachelor of Science in Information Systems" aria-haspopup="dialog">
         <div class="portrait">
           <img src="marjorie.jpg" alt="Marjorie Ann Yulo" loading="lazy">
         </div>
@@ -1661,61 +1673,74 @@ const reflectionName=document.getElementById('reflectionName');
 const reflectionDegree=document.getElementById('reflectionDegree');
 
 const memberReflections={
+  'Aivan Mark Aguilar':`My experience in NSTP will always be memorable for me, because it provided me the opportunity to interact with other people and to learn from them. Being in the field during our deployment in Konkokyo, I was glad to be with the students who were eagerly joining the activities. They looked shy at first, but being able to witness them join in and enjoy themselves made our efforts all worthwhile.
+
+There is one thing that I highly value, which is my leader, assistant leader, and the members of our group. All of them were very respectful of all the concepts and suggestions that I have contributed during our planning of our activities and this made me feel like I was part of them and made me gain confidence in contributing more. Due to this activity, I came to learn the significance of working together and what can be accomplished if people work with one another and support each other. I learned the importance of being more patient in dealing with children since they have varying personalities and ways to express themselves. In retrospect, I learned that even the simplest act of kindness, effort, and cooperation can make a difference in a day of a person.`,
+
   'Gabriel Andre Cuevas':`My NSTP experience was much better than I initially expected. I had a lot of fun and learned about the community in a different way. I was very nervous when I first met the students at Konkokyo, especially since they were already in high school. But my expectations were shattered when we started to present HIRAYA Corner. The mood became lighter, and we were able to bond with the students.`,
 
   'Ethan Jarren Diego':`My NSTP experience was very meaningful. During our deployment, I was a bit nervous at first, but everything became more comfortable once we started interacting with the kids. Teaching them about emotions and the importance of opening up made me realize how valuable it is to express our feelings and listen to others with empathy. Seeing the children participate and share their thoughts made the experience even more rewarding. I will always remember this deployment as something that helped me grow while making a small positive impact on others.`,
-
-  'Ethan Austin Manalili':`My NSTP experience, though short, was very meaningful because it allowed me to help and create memories for the students in Konkokyo. In our deployment, I was very happy to know that the students were very participative and also very creative. Though some were shy, I knew that at least they were trying their best. It made me realize that my effort, even if it was small, when done with sincerity and togetherness, could make a big difference.`,
 
   'Shawn Ysmael Grefaldeo':`I would say that my NSTP experience is that it is one that I will always remember because it allowed me to be of service to others and at the same time being able to achieve a certain goal with my group mates. One of the things that stuck to me was the planning stage of our community deployment as well as the actual deployment stage itself where all of our preparation came to life. Getting to meet the students though scary at first because we expected much younger students but hearing their stories made me feel comfortable in a way that encouraged me to do better not only for our class but for the students we were helping too. This whole experience made me realize that even the smallest actions can lead to bigger, greater outcomes.`,
 
   'Marie Agnes Javellana':`Nstp, is not only a subject but an experience. I didn't expect to enjoy and learn so much through my groupmates and all the deployments we went through. I didn't talk to much during the deployment because I was nervous but, it thought me a lot to go outside my comfort zone and just enjoy. I will trully cherish these memories and be able to bring along these expereinces to my future doings. Thank you Nstp, for bringing new things I can cherish and go back too.`,
 
-  'Marjorie Ann Yulo':`NSTP002 taught me that leadership is not about carrying everything alone—it is about guiding with positivity, listening, and growing with the team. Through HIRAYA, I learned to look beyond people’s circumstances, treat everyone fairly, and create a space where service feels sincere, supportive, and human.`,
+  'Ethan Austin Manalili':`My NSTP experience, though short, was very meaningful because it allowed me to help and create memories for the students in Konkokyo. In our deployment, I was very happy to know that the students were very participative and also very creative. Though some were shy, I knew that at least they were trying their best. It made me realize that my effort, even if it was small, when done with sincerity and togetherness, could make a big difference.`,
 
-  'Aaron Matthew Natividad':`At first, i expected this to be another heavy subject since its more physical now with 2 deployments within the term. But as the time flew by, it was free flowing because of how we approached this. We just enjoyed this NSTP, especially our activities and interaction. On a personal note, this reflected upon the growth in terms of being frightened or anxious with the people i don’t know, but with the help of my group mates, they pushed me beyond what i am capable of and overall gained a new skill in the end. NSTP overall provided the experience i need to overall grow outside my comfort zone, and bring the lessons and values each person that i met throughout the future.`
+  'Aaron Matthew Natividad':`At first, i expected this to be another heavy subject since its more physical now with 2 deployments within the term. But as the time flew by, it was free flowing because of how we approached this. We just enjoyed this NSTP, especially our activities and interaction. On a personal note, this reflected upon the growth in terms of being frightened or anxious with the people i don’t know, but with the help of my group mates, they pushed me beyond what i am capable of and overall gained a new skill in the end. NSTP overall provided the experience i need to overall grow outside my comfort zone, and bring the lessons and values each person that i met throughout the future.`,
+
+  'Marjorie Ann Yulo':`NSTP002 taught me that leadership is not about carrying everything alone—it is about guiding with positivity, listening, and growing with the team. Through HIRAYA, I learned to look beyond people’s circumstances, treat everyone fairly, and create a space where service feels sincere, supportive, and human.`
 };
 
 function openMemberReflection(member){
   const memberName=member.dataset.name||'Team Member';
   const degree=member.dataset.degree||'';
-  const reflection=memberReflections[memberName];
+  const reflection=memberReflections[memberName]||'This member’s NSTP personal reflection has not been added yet.';
 
-  // Update everything while the modal is still closed.
+  // Build the complete content before making the modal visible.
   reflectionName.textContent=memberName;
   reflectionDegree.textContent=degree?'1st Year · '+degree:'';
+  reflectionBody.replaceChildren();
 
-  const paragraph=document.createElement('p');
-  paragraph.textContent=reflection||
-    'This member’s NSTP personal reflection has not been added yet.';
-  reflectionBody.replaceChildren(paragraph);
-
-  reflectionBody.classList.toggle('has-reflection',Boolean(reflection));
-  reflectionBody.classList.toggle('is-pending',!reflection);
-
-  // Always open at the beginning of the reflection.
-  reflectionModal.scrollTop=0;
-  reflectionModalCard.scrollTop=0;
-  reflectionModal.setAttribute('aria-hidden','false');
-
-  // Open only after the updated content has been placed in the DOM.
-  requestAnimationFrame(()=>{
-    reflectionModal.classList.add('open');
-    reflectionModalCard.scrollTop=0;
-    reflectionModal.querySelector('[data-close]')?.focus({preventScroll:true});
+  reflection.split(/\n\s*\n/).forEach(section=>{
+    const paragraph=document.createElement('p');
+    paragraph.textContent=section.trim();
+    reflectionBody.appendChild(paragraph);
   });
+
+  reflectionBody.classList.toggle('has-reflection',Boolean(memberReflections[memberName]));
+  reflectionBody.classList.toggle('is-pending',!memberReflections[memberName]);
+  reflectionModalCard.scrollTop=0;
+  reflectionModal.scrollTop=0;
+  reflectionModal.setAttribute('aria-hidden','false');
+  reflectionModal.classList.add('open');
+  document.body.classList.add('reflection-open');
 }
 
-const teamGrid=document.querySelector('.team-grid');
-teamGrid?.addEventListener('click',event=>{
-  const member=event.target.closest('.member');
-  if(!member||!teamGrid.contains(member)) return;
+function closeMemberReflection(){
+  reflectionModal.classList.remove('open');
+  reflectionModal.setAttribute('aria-hidden','true');
+  document.body.classList.remove('reflection-open');
+}
 
-  event.preventDefault();
-  event.stopPropagation();
-  openMemberReflection(member);
+// Attach a direct click handler to every profile card. No delayed repaint and no delegated event.
+document.querySelectorAll('#team .member').forEach(member=>{
+  member.addEventListener('click',event=>{
+    event.preventDefault();
+    openMemberReflection(member);
+  });
 });
-document.querySelectorAll('[data-close]').forEach(button=>button.addEventListener('click',()=>{const modal=button.closest('.modal');modal.classList.remove('open');modal.setAttribute('aria-hidden','true');}));document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open')}));document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal,.lightbox').forEach(m=>m.classList.remove('open'));}});
+
+reflectionModal.querySelector('[data-close]')?.addEventListener('click',event=>{
+  event.stopPropagation();
+  closeMemberReflection();
+});
+
+reflectionModal.addEventListener('click',event=>{
+  if(event.target===reflectionModal) closeMemberReflection();
+});
+
+document.querySelectorAll('[data-close]').forEach(button=>button.addEventListener('click',()=>{const modal=button.closest('.modal');if(!modal||modal===reflectionModal)return;modal.classList.remove('open');modal.setAttribute('aria-hidden','true');}));document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open')}));document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal,.lightbox').forEach(m=>m.classList.remove('open'));}});
 const board=document.getElementById('boardImage');
 const mapButton=document.getElementById('mapImageButton');
 const lightbox=document.getElementById('lightbox');
@@ -1987,6 +2012,6 @@ document.querySelectorAll('video[poster^="./"]').forEach(video=>{
 });
 
 function toast(message){const t=document.getElementById('toast');t.textContent=message;t.classList.add('show');clearTimeout(window._toast);window._toast=setTimeout(()=>t.classList.remove('show'),2400);}
-console.info("HIRAYA build 20260731-logo-second-video");
+console.info("HIRAYA build 20260803-reflections-final");
 </script>
 </body></html>
